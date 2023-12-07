@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OrderMember;
-use App\Http\Requests\StoreOrderMemberRequest;
-use App\Http\Requests\UpdateOrderMemberRequest;
+use App\Models\NewBookCartsItem;
+use App\Http\Requests\StoreNewBookCartsItemRequest;
+use App\Http\Requests\UpdateNewBookCartsItemRequest;
 
-class OrderMemberController extends Controller
+class NewBookCartsItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class OrderMemberController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrderMemberRequest $request)
+    public function store(StoreNewBookCartsItemRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class OrderMemberController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(OrderMember $orderMember)
+    public function show(NewBookCartsItem $newBookCartsItem)
     {
         //
     }
@@ -43,7 +43,7 @@ class OrderMemberController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(OrderMember $orderMember)
+    public function edit(NewBookCartsItem $newBookCartsItem)
     {
         //
     }
@@ -51,7 +51,7 @@ class OrderMemberController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOrderMemberRequest $request, OrderMember $orderMember)
+    public function update(UpdateNewBookCartsItemRequest $request, NewBookCartsItem $newBookCartsItem)
     {
         //
     }
@@ -59,7 +59,7 @@ class OrderMemberController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(OrderMember $orderMember)
+    public function destroy(NewBookCartsItem $newBookCartsItem)
     {
         //
     }
