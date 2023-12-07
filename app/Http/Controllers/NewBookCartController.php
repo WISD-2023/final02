@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ShoppingList;
-use App\Http\Requests\StoreShoppingListRequest;
-use App\Http\Requests\UpdateShoppingListRequest;
+use App\Models\NewBookCart;
+use App\Http\Requests\StoreNewBookCartRequest;
+use App\Http\Requests\UpdateNewBookCartRequest;
 
-class ShoppingListController extends Controller
+class NewBookCartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class ShoppingListController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreShoppingListRequest $request)
+    public function store(StoreNewBookCartRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ShoppingListController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ShoppingList $shoppingList)
+    public function show(NewBookCart $newBookCart)
     {
         //
     }
@@ -43,7 +43,7 @@ class ShoppingListController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ShoppingList $shoppingList)
+    public function edit(NewBookCart $newBookCart)
     {
         //
     }
@@ -51,7 +51,7 @@ class ShoppingListController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateShoppingListRequest $request, ShoppingList $shoppingList)
+    public function update(UpdateNewBookCartRequest $request, NewBookCart $newBookCart)
     {
         //
     }
@@ -59,7 +59,7 @@ class ShoppingListController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ShoppingList $shoppingList)
+    public function destroy(NewBookCart $newBookCart)
     {
         //
     }
