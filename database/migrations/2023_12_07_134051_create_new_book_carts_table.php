@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('new_book_carts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('invite_code');
+            $table->unsignedBigInteger('type');
+            $table->date('deadline_at');
+            $table->boolean('is_submit')->default(false);
             $table->timestamps();
         });
     }

@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('used_books', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->integer('category_id');
+            $table->string('name');
+            $table->string('author');
+            $table->string('pp');
+            $table->unsignedBigInteger('isbn');
+            $table->string('book_state');
             $table->timestamps();
         });
     }

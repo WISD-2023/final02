@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('used_book_carts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('used_book_id');
             $table->timestamps();
         });
     }

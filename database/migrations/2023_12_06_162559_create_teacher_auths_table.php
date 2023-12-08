@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('teacher_auths', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('work_proof');
+            $table->date('auth_at')->nullable();
+            $table->unsignedBigInteger('auth_by')->nullable();
+            $table->unsignedBigInteger('status')->default(0);
             $table->timestamps();
         });
     }

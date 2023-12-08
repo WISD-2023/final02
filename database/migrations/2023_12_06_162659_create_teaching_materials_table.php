@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('teaching_materials', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('new_book_id');//new_books
+            $table->string('name');
             $table->timestamps();
         });
     }
