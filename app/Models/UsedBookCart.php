@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class UsedBookCart extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'used_book_id',
+    ];
 }

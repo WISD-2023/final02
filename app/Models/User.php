@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'status',
+        'permission',
     ];
 
     /**
@@ -42,4 +46,49 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function accountInfo()
+    {
+        return $this->hasOne(AccountInfo::class);
+    }
+
+    public function teacherAuths()
+    {
+        return $this->hasOne(TeacherAuth::class);
+    }
+
+    public function permission()
+    {
+        return $this->belongsTo(Permission::class);
+    }
+
+    public function usedBook()
+    {
+        return $this->hasMany(UsedBook::class);
+    }
+
+    public function teachingMaterial()
+    {
+        return $this->hasMany(TeachingMaterial::class);
+    }
+
+    public function newBookCartsMember()
+    {
+        return $this->hasMany(NewBookCartsMember::class);
+    }
+
+    public function newBookCart()
+    {
+        return $this->hasMany(NewBookCart::class);
+    }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function schoolOrder()
+    {
+        return $this->hasMany(SchoolOrder::class);
+    }
 }
