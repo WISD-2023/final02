@@ -17,7 +17,10 @@ class TeacherAuthFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'work_proof' => $this->faker->imageUrl(),
+            'auth_at' => $this->faker->date(),
+            'auth_by' => 12,
+            'status' => 1,
         ];
     }
 }

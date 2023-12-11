@@ -17,7 +17,8 @@ class AccountInfoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'bank_branch' => $this -> faker -> numberBetween($min = 100, $max = 999),
+            'account' => $this -> faker -> numberBetween($min = 0000000001, $max = 9999999999),
         ];
     }
 }

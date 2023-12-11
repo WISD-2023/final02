@@ -16,8 +16,9 @@ class PermissionFactory extends Factory
      */
     public function definition(): array
     {
+        $permissions = ['遊客', '會員', '校方', '教師', '平台人員'];
         return [
-            //
+            'name' => $this -> faker -> unique() -> randomElement($permissions),
         ];
     }
 }

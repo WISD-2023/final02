@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\NewBook;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,13 @@ class TeachingMaterialFactory extends Factory
      */
     public function definition(): array
     {
+        $user = User::where('permission', 2)->first();
+        $newBook = NewBook::all();
         return [
-            //
+            'user_id' => $user->id,
+            'new_book_id' => $newBook->random()->id,
+            'name' => $this->faker->name(),
+
         ];
     }
 }

@@ -16,8 +16,9 @@ class PaymentMethodFactory extends Factory
      */
     public function definition(): array
     {
+        $paymentMethods = ['當面付款', 'ATM匯款', '信用卡'];
         return [
-            //
+            'name' => $this -> faker -> unique() -> randomElement($paymentMethods),
         ];
     }
 }
