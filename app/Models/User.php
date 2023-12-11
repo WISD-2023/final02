@@ -91,4 +91,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(SchoolOrder::class);
     }
+
+    public function transactionLocation()
+    {
+        return $this->belongsTo(TransactionLocation::class);
+    }
+
+    public function paymentMethod()
+    {
+        return $this->belongsTo(PaymentMethod::class);
+    }
 }

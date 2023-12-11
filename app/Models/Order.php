@@ -14,7 +14,7 @@ class Order extends Model
         'pay_type',
         'trade_place',
         'payment',
-        'finish_order_at',
+        'trade_at',
     ];
 
     public function user()

@@ -16,7 +16,14 @@ class UsedBook extends Model
         'author',
         'pp',
         'isbn',
+        'book_image',
         'book_state',
+        'price',
+        'description',
+        'pay_type',
+        'trade_place',
+        'trade_at',
+        'status',
     ];
 
     public function user()

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('pay_type');
             $table->unsignedBigInteger('trade_place');
             $table->boolean('payment')->default(false);
-            $table->date('finish_order_at')->nullable();
+            $table->datetime('trade_at');
             $table->timestamps();
         });
     }

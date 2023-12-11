@@ -14,12 +14,19 @@ return new class extends Migration
         Schema::create('used_books', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->integer('category_id');
+            $table->string('category_id');
             $table->string('name');
             $table->string('author');
             $table->string('pp');
             $table->unsignedBigInteger('isbn');
+            $table->string('book_image');
             $table->string('book_state');
+            $table->unsignedBigInteger('price');
+            $table->string('description');
+            $table->unsignedBigInteger('pay_type');
+            $table->unsignedBigInteger('trade_place');
+            $table->datetime('trade_at');
+            $table->unsignedBigInteger('status')->default(0);
             $table->timestamps();
         });
     }
