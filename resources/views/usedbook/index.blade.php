@@ -33,13 +33,13 @@
                                                             <img src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/097/44/0010974401.jpg&v=655b355bk&w=348&h=348" alt="Hand stitched, orange leather long wallet." class="h-48 w-48 object-cover object-center">
                                                         </div>
                                                         <h3 class="mt-4 text-sm text-gray-700">
-                                                            <a href="#">
+                                                            <a href="{{route('usedbook.show', $usedbook)}}">
                                                                 <span class="absolute inset-0"></span>
-                                                                {{ $usedbook->  name}}
+                                                                {{ $usedbook->name}}
                                                             </a>
                                                         </h3>
-                                                        <p class="mt-1 text-sm text-gray-500">{{ $usedbook->  author}}</p>
-                                                        <p class="mt-1 text-sm font-medium text-gray-900">${{ $usedbook->  price}}</p>
+                                                        <p class="mt-1 text-sm text-gray-500">{{ $usedbook->author}}</p>
+                                                        <p class="mt-1 text-sm font-medium text-gray-900">${{ $usedbook->price}}</p>
                                                     </div>
                                                     @endforeach
                                                     <!-- More products... -->

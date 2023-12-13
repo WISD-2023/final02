@@ -37,6 +37,8 @@ Route::get('newbooks/search', [NewBookController::class, 'search'])->name('newbo
 Route::get('usedbook', [UsedBookController::class, 'index'])->name('usedbook.index');
 //搜尋二手書
 Route::get('usedbooks/search', [UsedBookController::class, 'search'])->name('usedbooks.search');
+//二手書商品頁面
+Route::get('usedbook/{id}', [UsedBookController::class, 'show'])->name('usedbook.show');
 
 //指定授課書籍
 Route::get('teachingmaterial', [TeachingMaterialController::class, 'index'])->name("teachingmaterials.index");

@@ -47,7 +47,9 @@ class UsedBookController extends Controller
      */
     public function show(UsedBook $usedBook)
     {
-        //
+        return view('usedbook.show', [
+            'usedbookItem' => UsedBook::where($usedBook->id) -> first()
+        ]);
     }
 
     /**
