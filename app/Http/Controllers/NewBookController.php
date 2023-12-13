@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use App\Models\NewBook;
 use App\Http\Requests\StoreNewBookRequest;
 use App\Http\Requests\UpdateNewBookRequest;
@@ -13,7 +14,19 @@ class NewBookController extends Controller
      */
     public function index()
     {
-        //
+        $newbooks = NewBook::paginate(15);
+        return view('newbook.index', compact('newbooks'));
+    }
+
+    /**
+     * 搜尋書籍
+     */
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $newbooks = NewBook::where('name', 'like', '%' . $search . '%')->paginate(15);
+
+        return view('newbook.index', compact('newbooks'));
     }
 
     /**
