@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountInfoController;
 use App\Http\Controllers\NewBookController;
 use App\Http\Controllers\TeachingMaterialController;
 use App\Http\Controllers\ProfileController;
@@ -50,9 +51,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    //帳號資訊編輯表單
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    //帳號更新：name, email, phone, address
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    //刪除帳號
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //銀行帳號資訊
+    Route::patch('/accountinfo', [AccountInfoController::class, 'update'])->name('accountinfo.update');
 });
 
 require __DIR__.'/auth.php';
