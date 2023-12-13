@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NewBookController;
+use App\Http\Controllers\TeachingMaterialController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,12 @@ Route::get('/', function () {
 Route::get('newbook', [NewBookController::class, 'index'])->name("newbook.index");
 //搜尋書籍
 Route::get('/newbooks/search', [NewBookController::class, 'search'])->name('newbooks.search');
+
+//指定授課書籍
+Route::get('teachingmaterial', [TeachingMaterialController::class, 'index'])->name("teachingmaterial.index");
+//搜尋授課書籍
+Route::get('/teachingmaterials/search', [TeachingMaterialController::class, 'search'])->name('teachingmaterials.search');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

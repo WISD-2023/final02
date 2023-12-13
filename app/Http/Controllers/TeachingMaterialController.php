@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TeachingMaterial;
 use App\Http\Requests\StoreTeachingMaterialRequest;
 use App\Http\Requests\UpdateTeachingMaterialRequest;
+use Illuminate\Http\Request;
 
 class TeachingMaterialController extends Controller
 {
@@ -13,9 +14,16 @@ class TeachingMaterialController extends Controller
      */
     public function index()
     {
-        //
+        $teachingmaterials = TeachingMaterial::paginate(15);
+        return view('teachingmaterials.index', compact('teachingmaterials'));
     }
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $teachingmaterials  = TeachingMaterial::where('name', 'like', '%' . $search . '%')->paginate(15);
 
+        return view('teachingmaterials.index', compact('teachingmaterials'));
+    }
     /**
      * Show the form for creating a new resource.
      */
