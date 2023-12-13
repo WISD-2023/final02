@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UsedBook;
 use App\Http\Requests\StoreUsedBookRequest;
 use App\Http\Requests\UpdateUsedBookRequest;
+use Illuminate\Http\Request;
 
 class UsedBookController extends Controller
 {
@@ -13,7 +14,16 @@ class UsedBookController extends Controller
      */
     public function index()
     {
-        //
+        $usedbooks = UsedBook::paginate(16);
+        return view('usedbook.index', compact('usedbooks'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $usedbooks = UsedBook::where('name', 'like', '%' . $search . '%')->paginate(16);
+
+        return view('usedbook.index', compact('usedbooks'));
     }
 
     /**

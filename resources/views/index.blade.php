@@ -9,7 +9,7 @@
                             <h2 class="text-2xl font-bold tracking-tight text-gray-900">首頁 - 功能介紹</h2>
                             <p class="mt-4 text-base text-gray-500">為學校及師生提供更完善的書籍交易網站</p>
                             <div class="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-                                <a href="#" class="group block">
+                                <a href="{{ route('usedbook.index') }}" class="group block">
                                     <div aria-hidden="true" class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75">
                                         <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-01.jpg" alt="Brown leather key ring with brass metal loops and rivets on wood table." class="h-full w-full object-cover object-center">
                                     </div>

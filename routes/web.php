@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NewBookController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsedBookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,11 @@ Route::get('/', function () {
 Route::get('newbook', [NewBookController::class, 'index'])->name("newbook.index");
 //搜尋書籍
 Route::get('/newbooks/search', [NewBookController::class, 'search'])->name('newbooks.search');
+
+//二手書列表
+Route::get('usedbook', [UsedBookController::class, 'index'])->name('usedbook.index');
+//搜尋二手書
+Route::get('/usedbooks/search', [UsedBookController::class, 'search'])->name('usedbooks.search');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
