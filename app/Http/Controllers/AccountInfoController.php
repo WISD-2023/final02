@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\AccountInfo;
 use App\Http\Requests\StoreAccountInfoRequest;
 use App\Http\Requests\UpdateAccountInfoRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AccountInfoController extends Controller
 {
@@ -51,9 +54,11 @@ class AccountInfoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAccountInfoRequest $request, AccountInfo $accountInfo)
+    public function update(UpdateAccountInfoRequest $request): RedirectResponse
     {
-        //
+        $request->user()->accountInfo()->update($request->validated());
+
+        return Redirect::route('profile.edit')->with('status', 'accountinfo-update');
     }
 
     /**

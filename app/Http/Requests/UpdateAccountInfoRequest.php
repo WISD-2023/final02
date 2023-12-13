@@ -11,7 +11,7 @@ class UpdateAccountInfoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdateAccountInfoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'bank_branch' => ['required', 'numeric', 'digits:3'],
+            'account' => ['required', 'numeric', 'digits:12'],
         ];
     }
 }
