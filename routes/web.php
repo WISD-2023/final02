@@ -39,7 +39,7 @@ Route::get('usedbook', [UsedBookController::class, 'index'])->name('usedbook.ind
 Route::get('usedbooks/search', [UsedBookController::class, 'search'])->name('usedbooks.search');
 
 //指定授課書籍
-Route::get('teachingmaterial', [TeachingMaterialController::class, 'index'])->name("teachingmaterial.index");
+Route::get('teachingmaterial', [TeachingMaterialController::class, 'index'])->name("teachingmaterials.index");
 //搜尋授課書籍
 Route::get('teachingmaterials/search', [TeachingMaterialController::class, 'search'])->name('teachingmaterials.search');
 

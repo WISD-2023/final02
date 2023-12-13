@@ -23,7 +23,7 @@
                                     <h3 class="mt-4 text-base font-semibold text-gray-900">瀏覽新書購書專區</h3>
                                     <p class="mt-2 text-sm text-gray-500">The rest of the house will still be a mess, but your desk will look great.</p>
                                 </a>
-                                <a href="#" class="group block">
+                                <a href="{{ route('teachingmaterials.index') }}" class="group block">
                                     <div aria-hidden="true" class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75">
                                         <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-03.jpg" alt="Person placing task list card into walnut card holder next to felt carrying case on leather desk pad." class="h-full w-full object-cover object-center">
                                     </div>
