@@ -56,9 +56,14 @@ class AccountInfoController extends Controller
      */
     public function update(UpdateAccountInfoRequest $request): RedirectResponse
     {
-        $request->user()->accountInfo()->update($request->validated());
+        $user = $request->user();
 
-        return Redirect::route('profile.edit')->with('status', 'accountinfo-update');
+        $accountInfo = $user->accountInfo()->firstOrNew(['user_id' => $user->id]);
+        $accountInfo->created_at = $accountInfo->exists ? $accountInfo->created_at : now();
+        $accountInfo->updated_at = now();
+        $accountInfo->fill($request->validated())->save();
+
+        return redirect()->route('profile.edit')->with('status', 'accountinfo-update');
     }
 
     /**
