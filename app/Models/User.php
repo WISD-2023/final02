@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function permission()
     {
-        return $this->belongsTo(Permission::class);
+       // return $this->belongsTo(Permission::class,'user_id');
     }
 
     public function usedBook()

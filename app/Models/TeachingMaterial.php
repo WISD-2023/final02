@@ -15,6 +15,10 @@ class TeachingMaterial extends Model
 
     public function newBook()
     {
-        return $this->belongsTo(NewBook::class);
+        return $this->belongsTo(NewBook::class, 'new_book_id');
+    }
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -30,9 +30,9 @@
                                                 <thead class="bg-gray-50">
                                                 <tr>
                                                     <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">編號</th>
-                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">書籍編號</th>
+                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">書籍名稱</th>
                                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">課程名稱</th>
-                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">教師編號</th>
+                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">教師名稱</th>
                                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
 
                                                         <span class="text-sm">操作</span>
@@ -43,14 +43,13 @@
                                                 @foreach($teachingmaterials as $teachingmaterial)
                                                     <tr>
                                                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ $teachingmaterial->  id}}</td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $teachingmaterial->  new_book_id}}</td>
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $teachingmaterial -> newbook -> name}}</td>
                                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $teachingmaterial->  name}}</td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $teachingmaterial->  user_id}}</td>
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ optional($teachingmaterial->users)->name }}</td>
                                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">加入購書單<span class="sr-only">, Lindsay Walton</span></a>
 
                                                         </td>
-
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
