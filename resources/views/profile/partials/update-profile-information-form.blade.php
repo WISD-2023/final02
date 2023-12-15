@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-gray-900 dark:text-white">
             {{ __('檔案資訊') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
             {{ __("更新您帳戶的個人資料和電子郵件地址。") }}
         </p>
     </header>
@@ -18,26 +18,26 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('使用者名稱 Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-input-label for="name" :value="__('使用者名稱 Name')" class="dark:text-white"/>
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full dark:text-gray-900" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
-            <x-input-label for="phone" :value="__('電話 Phone')" />
-            <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)" required autofocus autocomplete="phone" />
+            <x-input-label for="phone" :value="__('電話 Phone')" class="dark:text-white"/>
+            <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full dark:text-gray-900" :value="old('phone', $user->phone)" required autofocus autocomplete="phone" />
             <x-input-error class="mt-2" :messages="$errors->get('Phone')" />
         </div>
 
         <div>
-            <x-input-label for="address" :value="__('地址 Address')" />
-            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autofocus autocomplete="address" />
+            <x-input-label for="address" :value="__('地址 Address')" class="dark:text-white"/>
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full dark:text-gray-900" :value="old('address', $user->address)" required autofocus autocomplete="address" />
             <x-input-error class="mt-2" :messages="$errors->get('address')" />
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('電子信箱 Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+            <x-input-label for="email" :value="__('電子信箱 Email')" class="dark:text-white"/>
+            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full dark:text-gray-900" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())

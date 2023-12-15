@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-gray-900 dark:text-white">
             {{ __('銀行帳號資訊') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
             {{ __("更新您帳號的銀行帳號收付款資訊。") }}
         </p>
     </header>
@@ -18,14 +18,14 @@
         @method('patch')
 
         <div>
-            <x-input-label for="bank_branch" :value="__('分行代碼 bank branch')" />
-            <x-text-input id="bank_branch" name="bank_branch" type="text" class="mt-1 block w-full" :value="old('bank_branch', optional($user->accountInfo)->bank_branch)" required autofocus autocomplete="bank_branch" />
+            <x-input-label for="bank_branch" :value="__('分行代碼 bank branch')" class="dark:text-white"/>
+            <x-text-input id="bank_branch" name="bank_branch" type="text" class="mt-1 block w-full dark:text-gray-900" :value="old('bank_branch', optional($user->accountInfo)->bank_branch)" required autofocus autocomplete="bank_branch" />
             <x-input-error class="mt-2" :messages="$errors->get('bank_branch')" />
         </div>
 
         <div>
-            <x-input-label for="account" :value="__('帳戶 account')" />
-            <x-text-input id="account" name="account" type="text" class="mt-1 block w-full" :value="old('account', optional($user->accountInfo)->account )" required autofocus autocomplete="account" />
+            <x-input-label for="account" :value="__('帳戶 account')" class="dark:text-white"/>
+            <x-text-input id="account" name="account" type="text" class="mt-1 block w-full dark:text-gray-900" :value="old('account', optional($user->accountInfo)->account )" required autofocus autocomplete="account" />
             <x-input-error class="mt-2" :messages="$errors->get('account')" />
         </div>
 

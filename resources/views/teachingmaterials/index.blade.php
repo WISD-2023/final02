@@ -5,19 +5,19 @@
         <div class="max-w-[88rem] mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                <div class="max-w-[85rem] mx-auto sm:px-6 lg:px-8">
+                <div class="max-w-[85rem] mx-auto sm:px-6 lg:px-8 dark:bg-gray-700">
                     <div class="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
                         <div class="px-4 sm:px-6 lg:px-8">
                             <div class="sm:flex sm:items-center">
                                 <div class="sm:flex-auto">
-                                    <h2 class="text-2xl font-bold tracking-tight text-gray-900">授課書籍列表</h2>
-                                    <p class="mt-4 text-base text-gray-500">可瀏覽學校販售之授課書籍資訊，並即時添加至購書單中。</p>
+                                    <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">授課書籍列表</h2>
+                                    <p class="mt-4 text-base text-gray-500 dark:text-white">可瀏覽學校販售之授課書籍資訊，並即時添加至購書單中。</p>
                                 </div>
                                 <div class="mt-4 sm:mt-0">
                                     <form action="{{ route('teachingmaterials.search') }}" method="GET">
                                         <div class="flex items-center">
-                                            <input type="text" name="search" id="search" placeholder="搜尋授課書籍" class="border rounded-md border-gray-200 py-1 px-2 mr-2">
-                                            <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded-md">搜尋</button>
+                                            <input type="text" name="search" id="search" placeholder="搜尋授課書籍" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
+                                            <button type="submit" class="bg-blue-600 text-white ark:bg-blue-800 dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
                                         </div>
                                     </form>
                                 </div>
@@ -27,42 +27,41 @@
                                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                         <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
                                             <table class="min-w-full divide-y divide-gray-300">
-                                                <thead class="bg-gray-50">
+                                                <thead class="bg-gray-50 dark:bg-gray-600">
                                                 <tr>
-                                                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">編號</th>
-                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">書籍名稱</th>
-                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">課程名稱</th>
-                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">教師名稱</th>
-                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-200 sm:pl-6">編號</th>
+                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">書籍名稱</th>
+                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">課程名稱</th>
+                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">教師名稱</th>
+                                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
 
                                                         <span class="text-sm">操作</span>
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody class="divide-y divide-gray-200 bg-white">
+                                                <tbody class="divide-y divide-gray-200 bg-white dark:bg-gray-500 dark:divide-gray-400">
                                                 @foreach($teachingmaterials as $teachingmaterial)
                                                     <tr>
-                                                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ $teachingmaterial->  id}}</td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $teachingmaterial -> newbook -> name}}</td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $teachingmaterial->  name}}</td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ optional($teachingmaterial->users)->name }}</td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">加入購書單<span class="sr-only">, Lindsay Walton</span></a>
-
+                                                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-200 sm:pl-6">{{ $teachingmaterial->  id}}</td>
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ $teachingmaterial -> newbook -> name}}</td>
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ $teachingmaterial->  name}}</td>
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ optional($teachingmaterial->users)->name }}</td>
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900 dark:text-sky-500">加入購書單<span class="sr-only">, Lindsay Walton</span></a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
                                             </table>
                                             <!-- Pagination -->
-                                            <div class="flex items-center justify-between border-t border-gray-200 bg-white px-2 py-2 sm:px-6">
+                                            <div class="flex items-center justify-between border-t border-gray-200 bg-white dark:bg-gray-600  px-2 py-2 sm:px-6">
                                                 <div class="flex flex-1 justify-between sm:hidden">
                                                     <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
                                                     <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
                                                 </div>
                                                 <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
                                                     <div>
-                                                        <p class="text-sm text-gray-700">
+                                                        <p class="text-sm text-gray-700 dark:text-gray-200">
                                                             顯示第
                                                             <span class="font-medium">{{ $teachingmaterials->firstItem() }}</span>
                                                             至

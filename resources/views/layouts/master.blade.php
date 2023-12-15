@@ -10,12 +10,12 @@
     <!-- css, js -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased bg-gray-50 dark:bg-slate-900">
 <div class="min-h-screen bg-gray-100">
     @include('layouts.partials.navigation')
 
     <!-- Page Content -->
-    <main>
+    <main class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white">
         @yield('page-content')
     </main>
 </div>
