@@ -101,4 +101,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(PaymentMethod::class);
     }
+
+    //檢查使用者是否有權限
+    public function hasAnyPermission($permission)
+    {
+        return in_array($this->permission, $permission);
+    }
 }
