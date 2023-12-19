@@ -14,7 +14,7 @@
                                         <p class="mt-4 text-base text-gray-500 dark:text-white">可瀏覽學校販售之書籍資訊，並即時添加至購書單中。</p>
                                     </div>
                                     <div class="mt-4 sm:mt-0">
-                                        <form action="{{ route('newbooks.search') }}" method="GET">
+                                        <form action="{{ route('newbook.search') }}" method="GET">
                                             <div class="flex items-center">
                                                 <input type="text" name="search" id="search" placeholder="搜尋書名" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
                                                 <button type="submit" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
