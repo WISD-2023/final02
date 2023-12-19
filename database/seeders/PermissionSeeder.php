@@ -13,6 +13,11 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        Permission::factory(5) -> create();
+        $permissions = [ '會員', '校方', '教師', '平台人員'];
+        foreach ($permissions as $permission) {
+            Permission::create([
+                'name' => $permission,
+            ]);
+        }
     }
 }
