@@ -19,4 +19,9 @@ class TransactionLocation extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    public function usedbook()
+    {
+        return $this->hasMany(UsedBook::class);
+    }
 }

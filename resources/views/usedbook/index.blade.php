@@ -4,7 +4,6 @@
     <div class="py-8">
         <div class="max-w-[88rem] mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-
                     <div class="max-w-[85rem] mx-auto sm:px-6 lg:px-8 bg-white dark:bg-gray-700">
                         <div class="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8 ">
                             <div class="px-4 sm:px-6 lg:px-8">
@@ -14,7 +13,7 @@
                                         <p class="mt-4 text-base text-gray-500 dark:text-white">可瀏覽正在販售的二手書籍資訊，並即時添加至購書單中。</p>
                                     </div>
                                     <div class="mt-4 sm:mt-0">
-                                        <form action="{{ route('usedbooks.search') }}" method="GET">
+                                        <form action="{{ route('usedbook.search') }}" method="GET">
                                             <div class="flex items-center">
                                                 <input type="text" name="search" id="search" placeholder="搜尋書名" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
                                                 <button type="submit" class="bg-blue-600 text-white dark:bg-blue-800 dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
