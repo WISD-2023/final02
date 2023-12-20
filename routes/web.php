@@ -71,7 +71,7 @@ Route::middleware('auth')->prefix('backstage')->name('backstage.')->group(functi
     Route::get('/dashboard', function (){ return view('backstage.dashboard'); })->name('dashboard');
 
     //會員後台路由
-    Route::middleware('checkPermissions:1,4')->group(function () {
+    Route::middleware('checkPermissions:1,3,4')->group(function () {
 
     });
 
