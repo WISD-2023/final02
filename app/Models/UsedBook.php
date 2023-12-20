@@ -45,4 +45,14 @@ class UsedBook extends Model
     {
         return $this->hasMany(OrderDetail::class);
     }
+
+    public function transactionLocation()
+    {
+        return $this->belongsTo(TransactionLocation::class);
+    }
+
+    public function paymentMethod()
+    {
+        return $this->belongsTo(PaymentMethod::class);
+    }
 }

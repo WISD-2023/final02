@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PaymentMethod;
+use App\Models\TransactionLocation;
 use App\Models\UsedBook;
 use App\Http\Requests\StoreUsedBookRequest;
 use App\Http\Requests\UpdateUsedBookRequest;
@@ -14,7 +16,7 @@ class UsedBookController extends Controller
      */
     public function index()
     {
-        $usedbooks = UsedBook::paginate(16);
+        $usedbooks = UsedBook::where('status', 1)->paginate(16);
         return view('usedbook.index', compact('usedbooks'));
     }
 
@@ -45,11 +47,15 @@ class UsedBookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(UsedBook $usedBook)
+    public function show($usedbook)
     {
+        $showbook = UsedBook::where('id', $usedbook) -> firstOrFail();
         return view('usedbook.show', [
-            'usedbookItem' => UsedBook::where($usedBook->id) -> first()
+            'usedbook' => $showbook,
+            'paymethod' => json_decode (PaymentMethod::where('id', $showbook -> pay_type) -> pluck('name'), true)[0],
+            'transaction' => json_decode (TransactionLocation::where('id', $showbook -> trade_place) -> pluck('name'), true)[0],
         ]);
+
     }
 
     /**
