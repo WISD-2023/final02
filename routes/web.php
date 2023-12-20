@@ -75,13 +75,8 @@ Route::middleware('auth')->prefix('backstage')->group(function () {
 
     });
 
-    //教師後台路由
-    Route::middleware('checkPermissions:2')->prefix('teacher')->name('teacher.')->group(function () {
-
-    });
-
     //學校後台路由
-    Route::middleware('checkPermissions:3')->prefix('school')->name('school.')->group(function () {
+    Route::middleware('checkPermissions:2')->prefix('school')->name('school.')->group(function () {
     /* newbook */
         //新書列表
         Route::get('newbook', [NewBookController::class, 'schoolIndex'])->name("newbook.index");
@@ -97,6 +92,11 @@ Route::middleware('auth')->prefix('backstage')->group(function () {
         Route::patch('newbook/{newbook}', [NewBookController::class, 'schoolUpdate'])->name('newbook.update');
         //刪除書籍
         Route::delete('newbook/{newbook}', [NewBookController::class, 'schoolDestroy'])->name('newbook.destroy');
+    });
+
+    //教師後台路由
+    Route::middleware('checkPermissions:3')->prefix('teacher')->name('teacher.')->group(function () {
+
     });
 
     //管理員後台路由
