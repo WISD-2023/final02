@@ -11,7 +11,7 @@
                         <p class="mt-4 text-base text-gray-500 dark:text-white">所有學校現有販售書籍資訊總表。</p>
                     </div>
                     <div class="mt-6 sm:mt-0 flex items-center">
-                        <form action="{{ route('school.newbook.search') }}" method="GET">
+                        <form action="{{ route('backstage.newbook.search') }}" method="GET">
                             <div class="flex items-center">
                                 <input type="text" name="search" id="search" placeholder="搜尋書名" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
                                 <button type="submit" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
@@ -57,9 +57,9 @@
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $newbook->  quantity}}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $newbook->  price}}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200 flex items-center">
-                                                <a href="{{ route('school.newbook.edit', $newbook) }}" class="text-indigo-600 hover:text-indigo-900 dark:text-sky-500">編輯<span class="sr-only">, Lindsay Walton</span></a>
+                                                <a href="{{ route('backstage.newbook.edit', $newbook) }}" class="text-indigo-600 hover:text-indigo-900 dark:text-sky-500">編輯<span class="sr-only">, Lindsay Walton</span></a>
                                                 |
-                                                <form action="{{ route('school.newbook.destroy', $newbook) }}" method="POST">
+                                                <form action="{{ route('backstage.newbook.destroy', $newbook) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="text-red-600 hover:text-indigo-900 dark:text-red-500">

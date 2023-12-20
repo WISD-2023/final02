@@ -14,11 +14,11 @@ class CheckPermissions
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle($request, Closure $next, ...$permission)
+    public function handle($request, Closure $next, ...$permissions)
     {
         $user = Auth::user();
         //檢查使用者是否有權限進入此頁面
-        if ($user && $user->hasAnyPermission($permission)) {
+        if ($user && $user->hasAnyPermission($permissions)) {
             return $next($request);
         }
 

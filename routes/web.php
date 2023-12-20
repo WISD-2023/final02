@@ -64,43 +64,43 @@ Route::middleware('auth')->group(function () {
 
 /* backstage */
 //需要登入後才能進入的後台路由
-Route::middleware('auth')->prefix('backstage')->group(function () {
+Route::middleware('auth')->prefix('backstage')->name('backstage.')->group(function () {
     //限制權限進入的路由
 
     //後台首頁
     Route::get('/dashboard', function (){ return view('backstage.dashboard'); })->name('dashboard');
 
     //會員後台路由
-    Route::middleware('checkPermissions:1')->prefix('member')->name('member.')->group(function () {
+    Route::middleware('checkPermissions:1,4')->group(function () {
 
     });
 
     //學校後台路由
-    Route::middleware('checkPermissions:2')->prefix('school')->name('school.')->group(function () {
+    Route::middleware('checkPermissions:2,4')->group(function () {
     /* newbook */
         //新書列表
-        Route::get('newbook', [NewBookController::class, 'schoolIndex'])->name("newbook.index");
+        Route::get('newbook', [NewBookController::class, 'backstageIndex'])->name("newbook.index");
         //搜尋二手書
-        Route::get('usedbook/search', [NewBookController::class, 'schoolSearch'])->name('newbook.search');
+        Route::get('newbook/search', [NewBookController::class, 'backstageSearch'])->name('newbook.search');
         //新增書籍表單
-        Route::get('newbook/create', [NewBookController::class, 'schoolCreate'])->name('newbook.create');
+        Route::get('newbook/create', [NewBookController::class, 'backstageCreate'])->name('newbook.create');
         //新增書籍
-        Route::post('newbook', [NewBookController::class, 'schoolStore'])->name("newbook.store");
+        Route::post('newbook', [NewBookController::class, 'backstageStore'])->name("newbook.store");
         //編輯書籍表單
-        Route::get('newbook/{newbook}/edit', [NewBookController::class, 'schoolEdit'])->name('newbook.edit');
+        Route::get('newbook/{newbook}/edit', [NewBookController::class, 'backstageEdit'])->name('newbook.edit');
         //更新書籍
-        Route::patch('newbook/{newbook}', [NewBookController::class, 'schoolUpdate'])->name('newbook.update');
+        Route::patch('newbook/{newbook}', [NewBookController::class, 'backstageUpdate'])->name('newbook.update');
         //刪除書籍
-        Route::delete('newbook/{newbook}', [NewBookController::class, 'schoolDestroy'])->name('newbook.destroy');
+        Route::delete('newbook/{newbook}', [NewBookController::class, 'backstageDestroy'])->name('newbook.destroy');
     });
 
     //教師後台路由
-    Route::middleware('checkPermissions:3')->prefix('teacher')->name('teacher.')->group(function () {
+    Route::middleware('checkPermissions:3,4')->group(function () {
 
     });
 
     //管理員後台路由
-    Route::middleware('checkPermissions:4')->prefix('admin')->name('admin.')->group(function () {
+    Route::middleware('checkPermissions:4')->group(function () {
 
     });
 });

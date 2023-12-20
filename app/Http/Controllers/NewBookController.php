@@ -17,10 +17,10 @@ class NewBookController extends Controller
         $newbooks = NewBook::paginate(15);
         return view('newbook.index', compact('newbooks'));
     }
-    public function schoolIndex()
+    public function backstageIndex()
     {
         $newbooks = NewBook::paginate(8);
-        return view('backstage.school.newbook.index', compact('newbooks'));
+        return view('backstage.newbook.index', compact('newbooks'));
     }
 
     /**
@@ -33,12 +33,12 @@ class NewBookController extends Controller
 
         return view('newbook.index', compact('newbooks'));
     }
-    public function schoolSearch(Request $request)
+    public function backstageSearch(Request $request)
     {
         $search = $request->input('search');
         $newbooks = NewBook::where('name', 'like', '%' . $search . '%')->paginate(8);
 
-        return view('backstage.school.newbook.index', compact('newbooks'));
+        return view('backstage.newbook.index', compact('newbooks'));
     }
 
     /**
@@ -89,12 +89,12 @@ class NewBookController extends Controller
         //
     }
 
-    public function schoolDestroy(NewBook $newbook)
+    public function backstageDestroy(NewBook $newbook)
     {
 
         $newbook->delete();
 
-        return redirect(route('school.newbook.index'));
+        return redirect(route('backstage.newbook.index'));
     }
 
 }

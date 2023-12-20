@@ -103,8 +103,13 @@ class User extends Authenticatable
     }
 
     //檢查使用者是否有權限
-    public function hasAnyPermission($permission)
+    public function hasAnyPermission($permissions)
     {
-        return in_array($this->permission, $permission);
+        // 使用者的權限
+        $userPermission = $this->permission;
+
+        // 檢查使用者是否有任意一個權限
+        return in_array($userPermission, $permissions);
     }
+
 }
