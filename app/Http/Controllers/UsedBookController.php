@@ -16,7 +16,7 @@ class UsedBookController extends Controller
      */
     public function index()
     {
-        $usedbooks = UsedBook::paginate(16);
+        $usedbooks = UsedBook::where('status', 1)->paginate(16);
         return view('usedbook.index', compact('usedbooks'));
     }
 

@@ -12,7 +12,7 @@
                                 <!-- Tab panel, show/hide based on tab state. -->
                                 <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
                                     <img
-                                        src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/097/44/0010974401.jpg&v=655b355bk&w=348&h=348"
+                                        src="{{ $usedbook->book_image }}"
                                         alt="Angled front view with bag zipped and handles upright."
                                         class="h-full w-full object-cover object-center sm:rounded-lg">
                                 </div>
