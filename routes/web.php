@@ -96,7 +96,7 @@ Route::middleware('auth')->prefix('backstage')->group(function () {
         //更新書籍
         Route::patch('newbook/{newbook}', [NewBookController::class, 'schoolUpdate'])->name('newbook.update');
         //刪除書籍
-        Route::delete('newbook/{newbook}', [NewBookController::class, 'destroy'])->name('newbook.destroy');
+        Route::delete('newbook/{newbook}', [NewBookController::class, 'schoolDestroy'])->name('newbook.destroy');
     });
 
     //管理員後台路由

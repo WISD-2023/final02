@@ -17,6 +17,11 @@ class NewBookController extends Controller
         $newbooks = NewBook::paginate(15);
         return view('newbook.index', compact('newbooks'));
     }
+    public function schoolIndex()
+    {
+        $newbooks = NewBook::paginate(8);
+        return view('backstage.school.newbook.index', compact('newbooks'));
+    }
 
     /**
      * 搜尋書籍
@@ -27,6 +32,13 @@ class NewBookController extends Controller
         $newbooks = NewBook::where('name', 'like', '%' . $search . '%')->paginate(15);
 
         return view('newbook.index', compact('newbooks'));
+    }
+    public function schoolSearch(Request $request)
+    {
+        $search = $request->input('search');
+        $newbooks = NewBook::where('name', 'like', '%' . $search . '%')->paginate(8);
+
+        return view('backstage.school.newbook.index', compact('newbooks'));
     }
 
     /**
@@ -72,8 +84,17 @@ class NewBookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(NewBook $newBook)
+    public function destroy(NewBook $newbook)
     {
         //
     }
+
+    public function schoolDestroy(NewBook $newbook)
+    {
+
+        $newbook->delete();
+
+        return redirect(route('school.newbook.index'));
+    }
+
 }
