@@ -21,6 +21,9 @@
 <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72 ">
 
     <main class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
+        <!-- Toast Component -->
+        @include('components.toasts')
+
         @yield('page-content')
     </main>
 

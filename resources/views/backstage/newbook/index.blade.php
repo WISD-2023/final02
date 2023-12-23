@@ -1,5 +1,5 @@
 @extends('layouts.backstage')
-@section('title', '首頁')
+@section('title', '新書列表')
 @section('page-content')
 
     <div class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
@@ -10,19 +10,18 @@
                         <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">新書列表</h2>
                         <p class="mt-4 text-base text-gray-500 dark:text-white">所有學校現有販售書籍資訊總表。</p>
                     </div>
-                    <div class="mt-6 sm:mt-0 flex items-center">
-                        <form action="{{ route('backstage.newbook.search') }}" method="GET">
-                            <div class="flex items-center">
-                                <input type="text" name="search" id="search" placeholder="搜尋書名" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
-                                <button type="submit" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
-                            </div>
+                    <div class="mt-6 sm:mt-0 flex flex-col sm:flex-row items-center">
+                        <form action="{{ route('backstage.newbook.search') }}" method="GET" class="flex items-center mb-2 sm:mb-0">
+                            <input type="text" name="search" id="search" placeholder="搜尋書名" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
+                            <button type="submit" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
                         </form>
-                        <button type="button" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 ml-2 rounded-md flex items-center">
+
+                        <a href="{{ route('backstage.newbook.create') }}" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 mt-2 sm:mt-0 ml-2 rounded-md flex items-center">
                             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
                             </svg>
                             新增書籍
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="mt-8 flow-root">

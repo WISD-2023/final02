@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use App\Models\NewBook;
@@ -48,6 +49,11 @@ class NewBookController extends Controller
     {
         //
     }
+    public function backstageCreate()
+    {
+        $categories = Category::all();
+        return view('backstage.newbook.create', compact('categories'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -55,6 +61,20 @@ class NewBookController extends Controller
     public function store(StoreNewBookRequest $request)
     {
         //
+    }
+
+    public function backstageStore(StoreNewBookRequest $request)
+    {
+        // 如果驗證失敗，將自動導回先前的表單
+
+        // 驗證成功
+        NewBook::create($request->validated());
+
+        // 資料保存後轉跳回新書總表
+        return redirect(route('backstage.newbook.index'))->with([
+            'success' => '書籍添加成功！',
+            'type' => 'success',
+        ]);
     }
 
     /**
@@ -72,6 +92,11 @@ class NewBookController extends Controller
     {
         //
     }
+    public function backstageEdit(NewBook $newbook)
+    {
+        $categories = Category::all();
+        return view('backstage.newbook.edit', compact('newbook', 'categories'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -79,6 +104,14 @@ class NewBookController extends Controller
     public function update(UpdateNewBookRequest $request, NewBook $newBook)
     {
         //
+    }
+    public function backstageUpdate(UpdateNewBookRequest $request, NewBook $newbook)
+    {
+        $newbook->update($request->validated());
+        return redirect(route('backstage.newbook.index'))->with([
+            'success' => '書籍 [編號：'. $newbook-> id.'] 更新成功！',
+            'type' => 'success',
+        ]);
     }
 
     /**
@@ -94,7 +127,10 @@ class NewBookController extends Controller
 
         $newbook->delete();
 
-        return redirect(route('backstage.newbook.index'));
+        return redirect(route('backstage.newbook.index'))->with([
+            'success' => '書籍 [編號：'. $newbook-> id.'] 刪除成功！',
+            'type' => 'success',
+        ]);
     }
 
 }
