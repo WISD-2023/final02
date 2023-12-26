@@ -22,7 +22,13 @@ class UsedBookController extends Controller
     }
     public function backstageIndex()
     {
-        $usedbooks = UsedBook::paginate(8);
+        if (auth()-> user()-> permission == 1)
+        {
+            $usedbooks = auth() -> user()->usedbook()-> paginate(8);
+        } else
+        {
+            $usedbooks = UsedBook::paginate(8);
+        }
         return view('backstage.usedbook.index', compact('usedbooks'));
     }
 
