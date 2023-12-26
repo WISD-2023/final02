@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\PaymentMethod;
 use App\Models\TransactionLocation;
 use App\Models\UsedBook;
@@ -19,7 +20,15 @@ class UsedBookController extends Controller
         $usedbooks = UsedBook::where('status', 1)->paginate(16);
         return view('usedbook.index', compact('usedbooks'));
     }
+    public function backstageIndex()
+    {
+        $usedbooks = UsedBook::paginate(8);
+        return view('backstage.usedbook.index', compact('usedbooks'));
+    }
 
+    /**
+     * 搜尋二手書
+     */
     public function search(Request $request)
     {
         $search = $request->input('search');
@@ -27,7 +36,13 @@ class UsedBookController extends Controller
 
         return view('usedbook.index', compact('usedbooks'));
     }
+    public function backstageSearch(Request $request)
+    {
+        $search = $request->input('search');
+        $usedbooks = UsedBook::where('name', 'like', '%' . $search . '%')->paginate(8);
 
+        return view('backstage.usedbook.index', compact('usedbooks'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -35,11 +50,20 @@ class UsedBookController extends Controller
     {
         //
     }
+    public function backstageCreate()
+    {
+        $categories = Category::all();
+        return view('backstage.usedbook.create', compact('categories'));
+    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreUsedBookRequest $request)
+    {
+        //
+    }
+    public function backstageStore(StoreUsedBookRequest $request)
     {
         //
     }

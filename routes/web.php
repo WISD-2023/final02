@@ -80,7 +80,7 @@ Route::middleware('auth')->prefix('backstage')->name('backstage.')->group(functi
     /* newbook */
         //新書列表
         Route::get('newbook', [NewBookController::class, 'backstageIndex'])->name("newbook.index");
-        //搜尋二手書
+        //搜尋書籍
         Route::get('newbook/search', [NewBookController::class, 'backstageSearch'])->name('newbook.search');
         //新增書籍表單
         Route::get('newbook/create', [NewBookController::class, 'backstageCreate'])->name('newbook.create');
@@ -92,6 +92,16 @@ Route::middleware('auth')->prefix('backstage')->name('backstage.')->group(functi
         Route::patch('newbook/{newbook}', [NewBookController::class, 'backstageUpdate'])->name('newbook.update');
         //刪除書籍
         Route::delete('newbook/{newbook}', [NewBookController::class, 'backstageDestroy'])->name('newbook.destroy');
+
+    /* usedbook */
+        //二手書列表
+        Route::get('usedbook', [UsedBookController::class, 'backstageIndex'])->name("usedbook.index");
+        //搜尋二手書
+        Route::get('usedbook/search', [UsedBookController::class, 'backstageSearch'])->name('usedbook.search');
+        //新增二手書表單
+        Route::get('usedbook/create', [UsedBookController::class, 'backstageCreate'])->name('usedbook.create');
+        //新增二手書
+        Route::post('usedbook', [UsedBookController::class, 'backstageStore'])->name('used.store');
     });
 
     //教師後台路由
