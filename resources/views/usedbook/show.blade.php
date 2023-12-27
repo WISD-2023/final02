@@ -39,10 +39,18 @@
 
                             <form class="mt-6">
                                 <div class="mt-10 flex">
-                                    <button type="submit"
-                                            class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">
-                                        Add to bag
-                                    </button>
+                                    @if(auth()->check() && auth()->user()->name == $usedbook->user->name)
+                                        <button type="submit"
+                                                class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-gray-500 px-8 py-3 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                                                disabled>
+                                            加入二手書購物車
+                                        </button>
+                                    @else
+                                        <button type="submit"
+                                                class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">
+                                            加入二手書購物車
+                                        </button>
+                                    @endif
                                 </div>
                             </form>
 
@@ -88,6 +96,7 @@
                                         <p class="text-gray-800 dark:text-gray-200">
                                             付款方式：{{$paymethod}}<br/>
                                             交易地點：{{$transaction}}<br/>
+                                            交易時間：{{date('Y 年 m 月 d 日 H 時 i 分', strtotime($usedbook->trade_at))}}<br/>
                                         </p>
                                     </div>
                                 </div>
