@@ -29,7 +29,7 @@
                                                 @foreach($usedbooks as $usedbook)
                                                     <div class="group relative">
                                                         <div class="h-56 w-48 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-48 xl:h-48">
-                                                                <img src="{{ $usedbook->book_image }}" alt="Hand stitched, orange leather long wallet." class="h-48 w-48 object-cover object-center">
+                                                                <img src="{{asset('images/'.$usedbook->book_image)}}" alt="Hand stitched, orange leather long wallet." class="h-48 w-48 object-cover object-center">
                                                             </div>
                                                         <p class="mt-4 text-sm text-gray-700 dark:text-white">
                                                             <a href="{{route('usedbook.show', $usedbook)}}">

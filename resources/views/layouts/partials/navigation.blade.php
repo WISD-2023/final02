@@ -71,7 +71,7 @@
                                     </a>
                                 @endif
                                 @if(Auth::user() -> permission != 2 )
-                                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-gray-300" href="#">
+                                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-gray-300" href="{{ route('backstage.usedbook.index') }}">
                                         {{ __('上架書籍管理') }}
                                     </a>
                                 @endif
