@@ -14,7 +14,7 @@
                                     <p class="mt-4 text-base text-gray-500 dark:text-white">可瀏覽學校販售之授課書籍資訊，並即時添加至購書單中。</p>
                                 </div>
                                 <div class="mt-4 sm:mt-0">
-                                    <form action="{{ route('teachingmaterials.search') }}" method="GET">
+                                    <form action="{{ route('teachingmaterial.search') }}" method="GET">
                                         <div class="flex items-center">
                                             <input type="text" name="search" id="search" placeholder="搜尋授課書籍" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
                                             <button type="submit" class="bg-blue-600 text-white ark:bg-blue-800 dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
@@ -43,12 +43,19 @@
                                                 @foreach($teachingmaterials as $teachingmaterial)
                                                     <tr>
                                                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-200 sm:pl-6">{{ $teachingmaterial->  id}}</td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ $teachingmaterial -> newbook -> name}}</td>
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ optional($teachingmaterial->newbook)->name ?? '無授課書籍' }}</td>
+
                                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ $teachingmaterial->  name}}</td>
                                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ optional($teachingmaterial->users)->name }}</td>
                                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">
-                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900 dark:text-sky-500">加入購書單<span class="sr-only">, Lindsay Walton</span></a>
+                                                            @if ($teachingmaterial->newbook)
+                                                                <a href="#" class="text-indigo-600 hover:text-indigo-900 dark:text-sky-500">加入購書單<span class="sr-only">, Lindsay Walton</span></a>
+                                                            @else
+                                                                <span class="cursor-not-allowed">加入購書單</span>
+                                                            @endif
                                                         </td>
+
+
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
