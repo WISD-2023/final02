@@ -8,7 +8,11 @@ use App\Models\TransactionLocation;
 use App\Models\UsedBook;
 use App\Http\Requests\StoreUsedBookRequest;
 use App\Http\Requests\UpdateUsedBookRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class UsedBookController extends Controller
 {
@@ -59,7 +63,9 @@ class UsedBookController extends Controller
     public function backstageCreate()
     {
         $categories = Category::all();
-        return view('backstage.usedbook.create', compact('categories'));
+        $paymentMethods = PaymentMethod::all();
+        $transactions = TransactionLocation::all();
+        return view('backstage.usedbook.create', compact('categories','paymentMethods','transactions'));
     }
 
     /**
@@ -71,7 +77,26 @@ class UsedBookController extends Controller
     }
     public function backstageStore(StoreUsedBookRequest $request)
     {
-        //
+        // 獲取已驗證的數據
+        $validatedData = $request->validated();
+
+        // 在已驗證的數據中添加 user_id 欄位
+        $validatedData['user_id'] = auth()->user()->id;
+
+        // 添加時間到 created_at 和 updated_at 欄位
+        $validatedData['created_at'] = now();
+        $validatedData['updated_at'] = now();
+
+        // 如果驗證失敗，將自動導回先前的表單
+
+        // 驗證成功
+        UsedBook::create($validatedData);
+
+        // 資料保存後轉跳回新書總表
+        return redirect(route('backstage.usedbook.index'))->with([
+            'success' => '書籍添加成功！',
+            'type' => 'success',
+        ]);
     }
 
     /**

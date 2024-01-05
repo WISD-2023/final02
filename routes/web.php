@@ -80,7 +80,7 @@ Route::middleware('auth')->prefix('backstage')->name('backstage.')->group(functi
         //新增二手書表單
         Route::get('usedbook/create', [UsedBookController::class, 'backstageCreate'])->name('usedbook.create');
         //新增二手書
-        Route::post('usedbook', [UsedBookController::class, 'backstageStore'])->name('used.store');
+        Route::post('usedbook', [UsedBookController::class, 'backstageStore'])->name('usedbook.store');
 
     });
 
