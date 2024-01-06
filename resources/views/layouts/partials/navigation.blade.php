@@ -30,7 +30,7 @@
                 <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-white dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('newbook.index') }}">
                     新書團購專區
                 </a>
-                <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-white dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('teachingmaterials.index') }}">
+                <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-white dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('teachingmaterial.index') }}">
                     指定授課書籍
                 </a>
                 <button type="button" class="py-1.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
