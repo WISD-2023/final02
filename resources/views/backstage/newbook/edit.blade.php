@@ -72,10 +72,10 @@
                                           "dropdownClasses": "mt-2 max-h-[300px] pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto dark:bg-slate-900 dark:border-gray-700",
                                           "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-gray-200 dark:focus:bg-slate-800",
                                           "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 dark:text-gray-200\" data-title></div></div></div>"
-                                         }'value="{{ old('category_id', $newbook -> category_id ) }}"  class="hidden" id="category_id" name="category_id">
+                                         }' class="hidden" id="category_id" name="category_id">
                                             <option value="">Choose</option>
                                             @foreach($categories as $category)
-                                                <option value="{{ $category->id }}">
+                                                <option value="{{ $category->id }}" {{ old('category_id', $newbook->category_id) == $category->id ? 'selected' : '' }}>
                                                     {{ $category->id }} | {{ $category->name }}
                                                 </option>
                                             @endforeach
