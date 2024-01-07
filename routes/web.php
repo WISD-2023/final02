@@ -44,9 +44,9 @@ Route::get('usedbook/{usedbook}', [UsedBookController::class, 'show'])->name('us
 
 /* teachingmaterial */
 //指定授課書籍
-Route::get('teachingmaterial', [TeachingMaterialController::class, 'index'])->name("teachingmaterials.index");
+Route::get('teachingmaterial', [TeachingMaterialController::class, 'index'])->name("teachingmaterial.index");
 //搜尋授課書籍
-Route::get('teachingmaterials/search', [TeachingMaterialController::class, 'search'])->name('teachingmaterials.search');
+Route::get('teachingmaterial/search', [TeachingMaterialController::class, 'search'])->name('teachingmaterial.search');
 
 /* profile */
 //需要登入後才能進入的路由
@@ -111,6 +111,14 @@ Route::middleware('auth')->prefix('backstage')->name('backstage.')->group(functi
     //教師後台路由
     Route::middleware('checkPermissions:3,4')->group(function () {
 
+        Route::get('teachingmaterial', [TeachingMaterialController::class, 'backstageIndex'])->name("teachingmaterial.index");
+        Route::get('teachingmaterial/search', [TeachingMaterialController::class, 'backstageSearch'])->name('teachingmaterial.search');
+        Route::get('teachingmaterial/create', [TeachingMaterialController::class, 'backstageCreate'])->name('teachingmaterial.create');
+        Route::get('teachingmaterial/{teachingmaterial}/edit', [TeachingMaterialController::class, 'backstageEdit'])->name('teachingmaterial.edit');
+
+        Route::patch('teachingmaterial/{teachingmaterial}', [TeachingMaterialController::class, 'backstageUpdate'])->name('teachingmaterial.update');
+
+        Route::delete('teachingmaterial/{teachingmaterial}', [TeachingMaterialController::class, 'backstageDestroy'])->name('teachingmaterial.destroy');
     });
 
     //管理員後台路由
