@@ -10,6 +10,7 @@ use App\Http\Requests\StoreUsedBookRequest;
 use App\Http\Requests\UpdateUsedBookRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -120,20 +121,44 @@ class UsedBookController extends Controller
     {
         //
     }
+    public function backstageEdit(UsedBook $usedbook)
+    {
+        $categories = Category::all();
+        $paymentMethods = PaymentMethod::all();
+        $transactions = TransactionLocation::all();
+        $usedbook->trade_at = Carbon::parse($usedbook->trade_at)->format('Y-m-d');
+        return view('backstage.usedbook.edit', compact('usedbook', 'categories','paymentMethods','transactions'));
+    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUsedBookRequest $request, UsedBook $usedBook)
+    public function update(UpdateUsedBookRequest $request, UsedBook $usedbook)
     {
         //
     }
-
+    public function backstageUpdate(UpdateUsedBookRequest $request, UsedBook $usedbook)
+    {
+        $usedbook->update($request->validated());
+        return redirect(route('backstage.usedbook.index'))->with([
+            'success' => '書籍 [編號：'. $usedbook-> id.'] 更新成功！',
+            'type' => 'success',
+        ]);
+    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(UsedBook $usedBook)
     {
         //
+    }
+    public function backstageDestroy(UsedBook $usedbook)
+    {
+        $usedbook->delete();
+
+        return redirect(route('backstage.usedbook.index'))->with([
+            'success' => '書籍 [編號：'. $usedbook-> id.'] 刪除成功！',
+            'type' => 'success',
+        ]);
     }
 }

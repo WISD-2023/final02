@@ -11,7 +11,7 @@ class UpdateUsedBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,19 @@ class UpdateUsedBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'pp' => 'required|string|max:255',
+            'isbn' => 'required|string|digits:13',
+            'book_state' => 'required|string|max:255',
+            'book_image' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'pay_type' => 'required|integer',
+            'trade_place' => 'required|integer',
+            'trade_at' => 'required|string|max:255',
+            'category_id' => 'required|integer',
+            'price' => 'required|integer',
+            'status' => 'required|integer',
         ];
     }
 }

@@ -81,7 +81,12 @@ Route::middleware('auth')->prefix('backstage')->name('backstage.')->group(functi
         Route::get('usedbook/create', [UsedBookController::class, 'backstageCreate'])->name('usedbook.create');
         //新增二手書
         Route::post('usedbook', [UsedBookController::class, 'backstageStore'])->name('usedbook.store');
-
+        //編輯二手書表單
+        Route::get('usedbook/{usedbook}/edit', [UsedBookController::class, 'backstageEdit'])->name('usedbook.edit');
+        //更新書籍表單
+        Route::patch('usedbook/{usedbook}', [UsedBookController::class, 'backstageUpdate'])->name('usedbook.update');
+        //刪除書籍
+        Route::delete('usedbook/{usedbook}', [UsedBookController::class, 'backstageDestroy'])->name('usedbook.destroy');
     });
 
     //學校後台路由

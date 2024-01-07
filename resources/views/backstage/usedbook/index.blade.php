@@ -58,6 +58,15 @@
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  status}}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  price}}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200 flex items-center">
+                                                <a href="{{ route('backstage.usedbook.edit', $usedbook) }}" class="text-indigo-600 hover:text-indigo-900 dark:text-sky-500">編輯<span class="sr-only">, Lindsay Walton</span></a>
+                                                |
+                                                <form action="{{ route('backstage.usedbook.destroy', $usedbook) }}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="text-red-600 hover:text-indigo-900 dark:text-red-500">
+                                                        刪除
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
