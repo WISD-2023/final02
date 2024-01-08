@@ -77,11 +77,6 @@ class User extends Authenticatable
         return $this->hasMany(NewBookCartsMember::class);
     }
 
-    public function newBookCart()
-    {
-        return $this->hasMany(NewBookCart::class);
-    }
-
     public function order()
     {
         return $this->hasMany(Order::class);
@@ -100,6 +95,11 @@ class User extends Authenticatable
     public function paymentMethod()
     {
         return $this->belongsTo(PaymentMethod::class);
+    }
+
+    public function newBookCartsDetail()
+    {
+        return $this->hasMany(NewBookCartsDetail::class);
     }
 
     //檢查使用者是否有權限

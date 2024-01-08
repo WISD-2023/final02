@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use function Symfony\Component\Translation\t;
 
 class StoreNewBookCartsMemberRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreNewBookCartsMemberRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,7 @@ class StoreNewBookCartsMemberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'invite_code' => 'required|string|max:8',
         ];
     }
 }

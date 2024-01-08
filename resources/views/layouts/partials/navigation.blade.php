@@ -33,14 +33,15 @@
                 <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-white dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('teachingmaterials.index') }}">
                     指定授課書籍
                 </a>
-                <button type="button" class="py-1.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                    二手書購書車
+                <a  class="py-1.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('newbookcart.index') }}">
+                    二手書購書單
                     <span class="inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium bg-gray-400 text-white">0</span>
-                </button>
-                <button type="button" class="py-1.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                </a>
+                <a class="py-1.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('newbookcart.index') }}">
                     新書購書單
-                    <span class="inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium bg-red-400 text-white">12</span>
-                </button>
+                    <span class="inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium text-white {{ auth()->check() && auth()->user()->newBookCartsMember->count() != 0 ? 'bg-red-400' : 'bg-gray-400' }}">{{ (auth()->check() ? auth()->user()->newBookCartsMember->count() : '0') }}</span>
+                </a>
+
                 @if(!Auth::check())
                     <a class="py-1 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('login') }}">
                         登入

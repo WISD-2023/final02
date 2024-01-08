@@ -21,13 +21,13 @@ class NewBookCartsItem extends Model
         return $this->hasMany(NewBook::class);
     }
 
-    public function newBookCartsMember()
-    {
-        return $this->hasMany(NewBookCartsMember::class);
-    }
-
     public function newBookCart()
     {
         return $this->belongsTo(NewBookCart::class);
+    }
+
+    public function newBookCartsDetail()
+    {
+        return $this->hasMany(NewBookCartsDetail::class);
     }
 }
