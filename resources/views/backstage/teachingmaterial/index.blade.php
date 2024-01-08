@@ -1,5 +1,5 @@
 @extends('layouts.backstage')
-@section('title', '二手書列表')
+@section('title', '授課書籍列表')
 @section('page-content')
 
     <div class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
@@ -7,20 +7,20 @@
             <div class="px-4 sm:px-6 lg:px-8">
                 <div class="sm:flex sm:items-center">
                     <div class="sm:flex-auto">
-                        <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">二手書列表</h2>
-                        <p class="mt-4 text-base text-gray-500 dark:text-white">所有平台上的二手書資訊總表。</p>
+                        <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">授課書籍列表</h2>
+                        <p class="mt-4 text-base text-gray-500 dark:text-white">教師授課書籍資訊總表。</p>
                     </div>
                     <div class="mt-6 sm:mt-0 flex flex-col sm:flex-row items-center">
-                        <form action="{{ route('backstage.usedbook.search') }}" method="GET" class="flex items-center mb-2 sm:mb-0">
-                            <input type="text" name="search" id="search" placeholder="搜尋書名" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
+                        <form action="{{ route('backstage.teachingmaterial.search') }}" method="GET" class="flex items-center mb-2 sm:mb-0">
+                            <input type="text" name="search" id="search" placeholder="搜尋授課書名" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
                             <button type="submit" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
                         </form>
 
-                        <a href="{{ route('backstage.usedbook.create') }}" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 mt-2 sm:mt-0 ml-2 rounded-md flex items-center">
+                        <a href="{{ route('backstage.teachingmaterial.create') }}" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 mt-2 sm:mt-0 ml-2 rounded-md flex items-center">
                             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
                             </svg>
-                            新增二手書
+                            新增授課書籍
                         </a>
                     </div>
                 </div>
@@ -33,34 +33,25 @@
                                     <tr>
                                         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-200 sm:pl-6">編號</th>
                                         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">書籍名稱</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">作者</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">出版項</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">ISBN</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">賣家</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">書況</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">庫存量</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">單價</th>
+                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">課程名稱</th>
+                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">教師名稱</th>
                                         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
                                             <span class="text-sm">操作功能</span>
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white dark:bg-gray-500 dark:divide-gray-400">
-                                    @foreach($usedbooks as $usedbook)
+                                    @foreach($teachingmaterials as $teachingmaterial)
                                         <tr>
-                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900  dark:text-gray-200 sm:pl-6">{{ $usedbook->  id}}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  name}}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  author}}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  pp}}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  isbn}}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  user->name}}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  book_state}}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  status}}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200">{{ $usedbook->  price}}</td>
+                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-200 sm:pl-6">{{ $teachingmaterial->  id}}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ ($teachingmaterial->newbook)->name  }}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ $teachingmaterial->  name}}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ optional($teachingmaterial->users)->name }}</td>
+
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500  dark:text-gray-200 flex items-center">
-                                                <a href="{{ route('backstage.usedbook.edit', $usedbook) }}" class="text-indigo-600 hover:text-indigo-900 dark:text-sky-500">編輯<span class="sr-only">, Lindsay Walton</span></a>
+                                                <a href="{{ route('backstage.teachingmaterial.edit', $teachingmaterial) }}" class="text-indigo-600 hover:text-indigo-900 dark:text-sky-500">編輯<span class="sr-only">, Lindsay Walton</span></a>
                                                 |
-                                                <form action="{{ route('backstage.usedbook.destroy', $usedbook) }}" method="POST">
+                                                <form action="{{ route('backstage.teachingmaterial.destroy', $teachingmaterial) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="text-red-600 hover:text-indigo-900 dark:text-red-500">
@@ -72,8 +63,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                                <!-- Pagination -->
-                                <div class="flex items-center justify-between border-t border-gray-200 bg-white dark:bg-gray-600 px-2 py-2 sm:px-6">
+                                <!-- Pagination --><div class="flex items-center justify-between border-t border-gray-200 bg-white dark:bg-gray-600 px-2 py-2 sm:px-6">
                                     <div class="flex flex-1 justify-between sm:hidden">
                                         <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
                                         <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
@@ -82,23 +72,23 @@
                                         <div>
                                             <p class="text-sm text-gray-700 dark:text-gray-200">
                                                 顯示第
-                                                <span class="font-medium">{{ $usedbooks->firstItem() }}</span>
+                                                <span class="font-medium">{{ $teachingmaterials->firstItem() }}</span>
                                                 至
-                                                <span class="font-medium">{{ $usedbooks->lastItem() }} </span>
+                                                <span class="font-medium">{{ $teachingmaterials->lastItem() }} </span>
                                                 筆資料，共
-                                                <span class="font-medium">{{ $usedbooks->total() }}</span>
+                                                <span class="font-medium">{{ $teachingmaterials->total() }}</span>
                                                 筆資料
                                             </p>
                                         </div>
                                         <div>
                                             <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-                                                <a href="{{ $usedbooks-> previousPageUrl() }}" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                                                <a href="{{ $teachingmaterials-> previousPageUrl() }}" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
                                                     <span class="sr-only">上一頁</span>
                                                     <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
                                                     </svg>
                                                 </a>
-                                                <a href="{{ $usedbooks-> nextPageUrl() }}" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                                                <a href="{{ $teachingmaterials-> nextPageUrl() }}" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
                                                     <span class="sr-only">下一頁</span>
                                                     <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
@@ -109,7 +99,6 @@
                                     </div>
                                 </div>
                                 <!-- End Pagination -->
-
                             </div>
                         </div>
                     </div>

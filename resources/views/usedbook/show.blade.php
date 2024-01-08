@@ -96,7 +96,7 @@
                                         <p class="text-gray-800 dark:text-gray-200">
                                             付款方式：{{$paymethod}}<br/>
                                             交易地點：{{$transaction}}<br/>
-                                            交易時間：{{date('Y 年 m 月 d 日 H 時 i 分', strtotime($usedbook->trade_at))}}<br/>
+                                            交易時間：{{date('Y 年 m 月 d 日', strtotime($usedbook->trade_at))}}<br/>
                                         </p>
                                     </div>
                                 </div>
