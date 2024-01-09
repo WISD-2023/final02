@@ -9,14 +9,18 @@
                         <div class="px-4 sm:px-6 lg:px-8">
                             <div class="sm:flex sm:items-center">
                                 <div class="sm:flex-auto">
-                                    <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">二手書購書單</h2>
-                                    <p class="mt-4 text-base text-gray-500 dark:text-white">可瀏覽正在販售的二手書籍資訊，並即時添加至購書單中。</p>
+                                    <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        {{ Auth::check() ? Auth::user()->name . ' 的二手書購書單' : '二手書購書單' }}
+                                    </h2>
+                                    <p class="mt-4 text-base text-gray-500 dark:text-white">
+                                        目前有{{ (auth()->check() ? auth()->user()->usedBookCart->count() : '0') }}本二手書
+                                    </p>
                                 </div>
                             </div>
                             <!-- Products -->
                             <div class="mt-6">
                                 <div class="space-y-8">
-                                    <div class="border-b border-t border-gray-200 bg-white shadow-sm sm:rounded-lg sm:border dark:bg-gray-800">
+                                    <div class="border-gray-200 bg-gray-200 sm:rounded-lg dark:bg-gray-800">
                                         @foreach($usedBookCarts as $bookData)
                                         <div class="px-4 py-6 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8 w-240">
                                             <div class="sm:flex lg:col-span-6">
@@ -55,7 +59,11 @@
                                                     <!-- Third Block -->
                                                     <div class="flex-grow flex items-center justify-end">
                                                         <div class="mt-3 space-y-3 text-gray-500">
-                                                            <button type="button" class="font-medium text-red-600 hover:text-red-400">刪除</button>
+                                                            <form action="{{ route('usedbookcart.destroy', ['usedBookCart' => $bookData['bookId']]) }}" method="POST">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button type="submit" class="font-medium text-red-600 hover:text-red-400">刪除</button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -68,18 +76,18 @@
                             <!-- Billing -->
                             <div class="mt-16">
                                 <h2 class="sr-only">Billing Summary</h2>
-                                <div class="bg-gray-100 px-4 py-6 sm:rounded-lg sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:py-8">
+                                <div class="bg-gray-200 px-4 py-6 sm:rounded-lg sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:py-8 dark:bg-gray-800">
                                     <dl class="grid grid-cols-2 gap-6 text-sm sm:grid-cols-2 md:gap-x-8 lg:col-span-7">
                                         <div>
-                                            <dt class="font-medium text-gray-900">Billing address</dt>
-                                            <dd class="mt-3 text-gray-500">
+                                            <dt class="font-medium text-gray-900 dark:text-white">Billing address</dt>
+                                            <dd class="mt-3 text-gray-500 dark:text-gray-300">
                                                 <span class="block">Floyd Miles</span>
                                                 <span class="block">7363 Cynthia Pass</span>
                                                 <span class="block">Toronto, ON N3Y 4H8</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="font-medium text-gray-900">Payment information</dt>
+                                            <dt class="font-medium text-gray-900 dark:text-white">Payment information</dt>
                                             <dd class="-ml-4 -mt-1 flex flex-wrap">
                                                 <div class="ml-4 mt-4 flex-shrink-0">
                                                     <svg aria-hidden="true" width="36" height="24" viewBox="0 0 36 24" class="h-6 w-auto">
@@ -89,8 +97,8 @@
                                                     <p class="sr-only">Visa</p>
                                                 </div>
                                                 <div class="ml-4 mt-4">
-                                                    <p class="text-gray-900">Ending with 4242</p>
-                                                    <p class="text-gray-600">Expires 02 / 24</p>
+                                                    <p class="text-gray-900 dark:text-white">Ending with 4242</p>
+                                                    <p class="text-gray-600 dark:text-gray-300">Expires 02 / 24</p>
                                                 </div>
                                             </dd>
                                         </div>
@@ -98,16 +106,16 @@
 
                                     <dl class="mt-8 divide-y divide-gray-200 text-sm lg:col-span-5 lg:mt-0">
                                         <div class="flex items-center justify-between pb-4">
-                                            <dt class="text-gray-600">小計</dt>
-                                            <dd class="font-medium text-gray-900">$72</dd>
+                                            <dt class="text-gray-600 dark:text-gray-300">小計</dt>
+                                            <dd class="font-medium text-gray-900 dark:text-white">$72</dd>
                                         </div>
                                         <div class="flex items-center justify-between py-4">
-                                            <dt class="text-gray-600">運費</dt>
-                                            <dd class="font-medium text-gray-900">$5</dd>
+                                            <dt class="text-gray-600 dark:text-gray-300">運費</dt>
+                                            <dd class="font-medium text-gray-900 dark:text-white">$5</dd>
                                         </div>
                                         <div class="flex items-center justify-between pt-4">
-                                            <dt class="font-medium text-gray-900">合計訂單l</dt>
-                                            <dd class="font-medium text-indigo-600">$83.16</dd>
+                                            <dt class="font-medium text-gray-900 dark:text-white">合計訂單</dt>
+                                            <dd class="font-medium text-indigo-700 dark:text-indigo-500">$83.16</dd>
                                         </div>
                                     </dl>
                                 </div>
