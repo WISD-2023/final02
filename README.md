@@ -60,7 +60,7 @@
 
 ## 教師 管理後台建立授課書籍
 -  教師 管理後台建立授課書籍
-   ![教師 管理後台建立授課書籍](#)
+   ![教師 管理後台建立授課書籍](https://media.discordapp.net/attachments/1166624939646926908/1194404624870944859/image.png?ex=65b03afd&is=659dc5fd&hm=0aa0b393bfb58237692485b2774bd3980f5ab61b8d84c7e390e222d22f579eb3&=&format=webp&quality=lossless&width=1440&height=697)
 
 
 # 系統的主要功能與負責的同學
@@ -111,7 +111,7 @@ Route::post('usedbookcart/addCart/{usedbook}', [UsedBookCartController::class,'a
 Route::delete('/usedbookcart/{usedBookCart}', [UsedBookCartController::class, 'destroy'])->name('usedbookcart.destroy');
 ```
 
-★授課書籍 teachingmaterial [3B032111 鄭宇均](https://github.com/3B032114) 全部
+★授課書籍 teachingmaterial [3B032111 鄭宇均](https://github.com/3B032111) 全部
 ```php
 //指定授課書籍
 Route::get('teachingmaterial', [TeachingMaterialController::class, 'index'])->name("teachingmaterial.index");
@@ -172,15 +172,20 @@ Route::patch('newbook/{newbook}', [NewBookController::class, 'backstageUpdate'])
 Route::delete('newbook/{newbook}', [NewBookController::class, 'backstageDestroy'])->name('newbook.destroy');
 ```
 
-★教師後台路由 [3B032111 鄭宇均](https://github.com/3B032114) 全部
+★教師後台路由 [3B032111 鄭宇均](https://github.com/3B032111) 全部
 ```php
 Route::get('teachingmaterial', [TeachingMaterialController::class, 'backstageIndex'])->name("teachingmaterial.index");
-Route::get('teachingmaterial/search', [TeachingMaterialController::class, 'backstageSearch'])->name('teachingmaterial.search');
+//搜尋授課書籍
+ Route::get('teachingmaterial/search', [TeachingMaterialController::class, 'backstageSearch'])->name('teachingmaterial.search');
+//新增授課書籍表單
 Route::get('teachingmaterial/create', [TeachingMaterialController::class, 'backstageCreate'])->name('teachingmaterial.create');
+//編輯授課書籍
 Route::get('teachingmaterial/{teachingmaterial}/edit', [TeachingMaterialController::class, 'backstageEdit'])->name('teachingmaterial.edit');
-
+//新增授課書籍
+Route::post('teachingmaterial', [TeachingMaterialController::class, 'backstageStore'])->name("teachingmaterial.store");
+//更新授課書籍
 Route::patch('teachingmaterial/{teachingmaterial}', [TeachingMaterialController::class, 'backstageUpdate'])->name('teachingmaterial.update');
-
+//刪除授課書籍
 Route::delete('teachingmaterial/{teachingmaterial}', [TeachingMaterialController::class, 'backstageDestroy'])->name('teachingmaterial.destroy');
 ```
 
@@ -237,7 +242,7 @@ artisan db:seed
 5. 建立模擬資料S
     - `artisan db:seed`
 
-## 系統開發人員與工作分配S
+## 系統開發人員與工作分配
 
 - [3B032104 吳凱杰](https://github.com/3B032104)
   -
@@ -248,7 +253,7 @@ artisan db:seed
   - 後台新書列表編輯跟新增
   - 後台建立新的書籍
 
-- [3B032111 鄭宇均](https://github.com/3B032114)
+- [3B032111 鄭宇均](https://github.com/3B032111)
   -
   - 指定授課書籍
   - 後台授課書籍編輯跟新增
