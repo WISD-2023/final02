@@ -30,6 +30,7 @@ class UsedBookCartController extends Controller
             $bookData[] = [
                 'bookImage' => $cart->usedBook->book_image,
                 'bookName' => $cart->usedBook->name,
+                'bookId' => $cart->usedBook->id,
                 'bookPrice' => $cart->usedBook->price,
                 'description' => $cart->usedBook->description,
                 'username' => $cart->usedBook->user->name,
@@ -107,6 +108,11 @@ class UsedBookCartController extends Controller
      */
     public function destroy(UsedBookCart $usedBookCart)
     {
-        //
+        $usedBookCart->delete();
+
+        return redirect(route('usedbookcart.index'))->with([
+            'success' => '書籍刪除成功！',
+            'type' => 'success',
+        ]);
     }
 }

@@ -75,6 +75,8 @@ Route::middleware('auth')->group(function () {
     Route::get('usedbookcart', [UsedBookCartController::class,'index'])->name('usedbookcart.index');
     //二手書家道購物車
     Route::post('usedbookcart/addCart/{usedbook}', [UsedBookCartController::class,'addCart'])->name('usedbookcart.addCart');
+    //刪除書籍
+    Route::delete('/usedbookcart/{usedBookCart}', [UsedBookCartController::class, 'destroy'])->name('usedbookcart.destroy');
 });
 
 /* teachingmaterial */
