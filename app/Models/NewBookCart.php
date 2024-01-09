@@ -10,6 +10,7 @@ class NewBookCart extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'invite_code',
         'type',
         'deadline_at',
@@ -21,9 +22,9 @@ class NewBookCart extends Model
         return $this->hasMany(NewBookCartsItem::class);
     }
 
-    public function user()
+    public function newBookCartsMember()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(NewBookCartsMember::class);
     }
 
     public function schoolOrder()

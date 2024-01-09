@@ -13,4 +13,9 @@ class UsedBookCart extends Model
         'user_id',
         'used_book_id',
     ];
+
+    public function usedBook()
+    {
+        return $this->belongsTo(UsedBook::class);
+    }
 }

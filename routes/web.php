@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\AccountInfoController;
+use App\Http\Controllers\NewBookCartController;
+use App\Http\Controllers\NewBookCartsItemController;
+use App\Http\Controllers\NewBookCartsMemberController;
 use App\Http\Controllers\NewBookController;
 use App\Http\Controllers\TeacherAuthController;
 use App\Http\Controllers\TeachingMaterialController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsedBookCartController;
 use App\Http\Controllers\UsedBookController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +39,28 @@ Route::get('newbook', [NewBookController::class, 'index'])->name("newbook.index"
 //搜尋書籍
 Route::get('newbook/search', [NewBookController::class, 'search'])->name('newbook.search');
 
+/* newbookcart */
+//需要登入後才能進入的路由
+Route::middleware('auth')->group(function () {
+    //新書購書單列表
+    Route::get('newbookcart', [NewBookCartController::class, 'index'])->name("newbookcart.index");
+    //購書單類型
+    Route::get('newbookcart/search', [NewBookCartController::class, 'search'])->name('newbookcart.search');
+    //新增購書單表單
+    Route::get('newbookcart/create', [NewBookCartController::class, 'create'])->name('newbookcart.create');
+    //新增購書單
+    Route::post('newbookcart', [NewBookCartController::class, 'store'])->name('newbookcart.store');
+    //指定購書單頁面
+    Route::get('newbookcart/{newBookCart}', [NewBookCartController::class, 'show'])->name('newbookcart.show');
+});
+
+/* newbookcartmember */
+//需要登入後才能進入的路由
+Route::middleware('auth')->group(function () {
+    //加入購書單
+    Route::post('newbookcartmember', [NewBookCartsMemberController::class, 'store'])->name("newbookcartmember.store");
+});
+
 /* usedbook */
 //二手書列表
 Route::get('usedbook', [UsedBookController::class, 'index'])->name('usedbook.index');
@@ -42,6 +68,17 @@ Route::get('usedbook', [UsedBookController::class, 'index'])->name('usedbook.ind
 Route::get('usedbook/search', [UsedBookController::class, 'search'])->name('usedbook.search');
 //指定二手書商品頁面
 Route::get('usedbook/{usedbook}', [UsedBookController::class, 'show'])->name('usedbook.show');
+
+/*usedbookcart*/
+//需要登入後才能進入的路由
+Route::middleware('auth')->group(function () {
+    //二手書購書單
+    Route::get('usedbookcart', [UsedBookCartController::class,'index'])->name('usedbookcart.index');
+    //二手書家道購物車
+    Route::post('usedbookcart/addCart/{usedbook}', [UsedBookCartController::class,'addCart'])->name('usedbookcart.addCart');
+    //刪除書籍
+    Route::delete('/usedbookcart/{usedBookCart}', [UsedBookCartController::class, 'destroy'])->name('usedbookcart.destroy');
+});
 
 /* teachingmaterial */
 //指定授課書籍

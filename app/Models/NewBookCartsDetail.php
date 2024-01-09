@@ -5,24 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SchoolOrder extends Model
+class NewBookCartsDetail extends Model
 {
     use HasFactory;
+    // 關閉自動更新時間戳記
+    public $timestamps = false;
 
     protected $fillable = [
-        'new_book_cart_id',
-        'payment',
-        'handler_id',
-        'status',
+        'user_id',
+        'cart_item_id',
+        'quantity'
     ];
 
-    public function newBookCart()
+    public function newBookCartsItem()
     {
-        return $this->belongsTo(NewBookCart::class);
+        return $this->belongsTo(NewBookCartsItem::class);
     }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
 }

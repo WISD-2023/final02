@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('new_book_carts_members', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('cart_item_id');//new_book_cart_items
-            $table->unsignedBigInteger('quantity');
+            $table->unsignedBigInteger('new_book_cart_id');//new_books_cart
+            $table->boolean('is_owner')->default(0); //is_owner
+
         });
     }
 

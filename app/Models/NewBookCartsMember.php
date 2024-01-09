@@ -12,14 +12,14 @@ class NewBookCartsMember extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'book_id',
         'user_id',
-        'quantity',
+        'new_book_cart_id',
+        'is_owner',
     ];
 
-    public function newBookCartsItem()
+    public  function newBookCart()
     {
-        return $this->belongsTo(NewBookCartsItem::class);
+        return $this->belongsTo(NewBookCart::class);
     }
 
     public function user()

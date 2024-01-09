@@ -20,7 +20,7 @@ class SchoolOrderSeeder extends Seeder
         foreach ($newBookCarts as $newBookCart){
             $user = $users->random();
             SchoolOrder::create([
-                'book_cart_id' => $newBookCart->id,
+                'new_book_cart_id' => $newBookCart->id,
                 'payment' => true,
                 'handler_id' => $user -> id,
                 'status' => 4,
