@@ -16,7 +16,6 @@
                                         alt="Angled front view with bag zipped and handles upright."
                                         class="h-full w-full object-cover object-center sm:rounded-lg">
                                 </div>
-                                <!-- More images... -->
                             </div>
                         </div>
 
