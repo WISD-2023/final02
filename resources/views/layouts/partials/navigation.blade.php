@@ -33,9 +33,9 @@
                 <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-white dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('teachingmaterial.index') }}">
                     指定授課書籍
                 </a>
-                <a  class="py-1.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('newbookcart.index') }}">
+                <a  class="py-1.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('usedbookcart.index') }}">
                     二手書購書單
-                    <span class="inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium bg-gray-400 text-white">0</span>
+                    <span class="inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium bg-gray-400 text-white {{ auth()->check() && auth()->user()->usedBookCart->count() != 0 ? : 'bg-gray-400' }}">{{ (auth()->check() ? auth()->user()->usedBookCart->count() : '0') }}</span>
                 </a>
                 <a class="py-1.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="{{ route('newbookcart.index') }}">
                     新書購書單

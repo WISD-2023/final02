@@ -70,6 +70,8 @@ Route::get('usedbook/{usedbook}', [UsedBookController::class, 'show'])->name('us
 Route::middleware('auth')->group(function () {
     //二手書購書單
     Route::get('usedbookcart', [UsedBookCartController::class,'index'])->name('usedbookcart.index');
+    //二手書家道購物車
+    Route::post('usedbookcart/addCart/{usedbook}', [UsedBookCartController::class,'addCart'])->name('usedbookcart.addCart');
 });
 
 /* teachingmaterial */

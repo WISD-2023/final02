@@ -55,4 +55,9 @@ class UsedBook extends Model
     {
         return $this->belongsTo(PaymentMethod::class);
     }
+
+    public function usedBookCart()
+    {
+        return $this->hasMany(UsedBookCart::class);
+    }
 }
