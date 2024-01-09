@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\UpdateNewBookRequest;
+use App\Http\Requests\UpdateTeachingMaterialRequest;
 use App\Models\Category;
 use App\Models\NewBook;
 use App\Models\TeachingMaterial;
 use App\Http\Requests\StoreTeachingMaterialRequest;
-use App\Http\Requests\UpdateTeachingMaterialRequest;
+use App\Models\UsedBook;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TeachingMaterialController extends Controller
@@ -83,8 +84,10 @@ class TeachingMaterialController extends Controller
     }
     public function backstageCreate()
     {
-        $categories = Category::all();
-        return view('backstage.teachingmaterial.create', compact('categories'));
+        $classnames = TeachingMaterial::all();
+        $booknames = NewBook::all();
+
+        return view('backstage.teachingmaterial.create', compact('booknames','classnames'));
     }
     public function backstageSearch(Request $request)
     {
@@ -93,23 +96,50 @@ class TeachingMaterialController extends Controller
 
         return view('backstage.teachingmaterial.index', compact('teachingmaterials'));
     }
-    public function backstageEdit(NewBook $teachingmaterial)
+    public function backstageEdit(TeachingMaterial $teachingmaterial)
     {
-        $categories = Category::all();
-        return view('backstage.teachingmaterial.edit', compact('teachingmaterial', 'categories'));
+        $classnames = TeachingMaterial::all();
+        $booknames = NewBook::all();
+
+        return view('backstage.teachingmaterial.edit', compact('teachingmaterial','booknames','classnames'));
     }
     public function backstageUpdate(UpdateTeachingMaterialRequest $request, TeachingMaterial $teachingmaterial)
     {
         $teachingmaterial->update($request->validated());
         return redirect(route('backstage.teachingmaterial.index'))->with([
-            'success' => '書籍 [編號：'. $teachingmaterial-> id.'] 更新成功！',
+            'success' => '授課書籍 [編號：'. $teachingmaterial-> id.'] 更新成功！',
             'type' => 'success',
         ]);
     }
-    public function backstageStore(StoreTeachingMaterialRequest $request)
+
+    public function backstagedestroy(TeachingMaterial $teachingmaterial)
     {
-        //
+        $teachingmaterial->delete();
+
+        return redirect(route('backstage.teachingmaterial.index'))->with([
+            'success' => '授課書籍 [編號：'. $teachingmaterial-> id.'] 刪除成功！',
+            'type' => 'success',
+        ]);
     }
 
+    public function backstageStore(StoreTeachingMaterialRequest $request)
+    {
+        // 獲取已驗證的數據
+        $validatedData = $request->validated();
+
+        // 在已驗證的數據中添加 user_id 欄位
+        $validatedData['user_id'] = auth()->user()-> id;
+
+        // 如果驗證失敗，將自動導回先前的表單
+
+        // 驗證成功
+        TeachingMaterial::create($validatedData);
+
+        // 資料保存後轉跳回授課書總表
+        return redirect(route('backstage.teachingmaterial.index'))->with([
+            'success' => '授課書籍添加成功！',
+            'type' => 'success',
+        ]);
+    }
 
 }

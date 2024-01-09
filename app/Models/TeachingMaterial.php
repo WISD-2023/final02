@@ -11,14 +11,17 @@ class TeachingMaterial extends Model
 
     protected $fillable = [
         'name',
+        'user_id',
+        'new_book_id',
     ];
 
     public function newBook()
     {
-        return $this->belongsTo(NewBook::class, 'new_book_id');
+        return $this->belongsTo(NewBook::class, 'new_book_id','id');
     }
     public function users()
     {
+
         return $this->belongsTo(User::class, 'user_id');
     }
 }

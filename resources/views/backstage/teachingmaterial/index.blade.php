@@ -12,7 +12,7 @@
                     </div>
                     <div class="mt-6 sm:mt-0 flex flex-col sm:flex-row items-center">
                         <form action="{{ route('backstage.teachingmaterial.search') }}" method="GET" class="flex items-center mb-2 sm:mb-0">
-                            <input type="text" name="search" id="search" placeholder="搜尋授課書名" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
+                            <input type="text" name="search" id="search" placeholder="搜尋課程名稱" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
                             <button type="submit" class="bg-blue-600 text-white dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
                         </form>
 
@@ -44,7 +44,7 @@
                                     @foreach($teachingmaterials as $teachingmaterial)
                                         <tr>
                                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-200 sm:pl-6">{{ $teachingmaterial->  id}}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ ($teachingmaterial->newbook)->name  }}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ optional($teachingmaterial->newbook)->name  }}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ $teachingmaterial->  name}}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-200">{{ optional($teachingmaterial->users)->name }}</td>
 

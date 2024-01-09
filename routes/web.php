@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountInfoController;
 use App\Http\Controllers\NewBookController;
+use App\Http\Controllers\TeacherAuthController;
 use App\Http\Controllers\TeachingMaterialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsedBookController;
@@ -57,6 +58,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     //刪除帳號
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    //教師權限申請
+    Route::get('teacherauth', [TeacherAuthController::class, 'index'])->name("teacherauth.index");
 
     //銀行帳號資訊
     Route::patch('/accountinfo', [AccountInfoController::class, 'update'])->name('accountinfo.update');
@@ -111,11 +114,13 @@ Route::middleware('auth')->prefix('backstage')->name('backstage.')->group(functi
     //教師後台路由
     Route::middleware('checkPermissions:3,4')->group(function () {
 
+
         Route::get('teachingmaterial', [TeachingMaterialController::class, 'backstageIndex'])->name("teachingmaterial.index");
         Route::get('teachingmaterial/search', [TeachingMaterialController::class, 'backstageSearch'])->name('teachingmaterial.search');
         Route::get('teachingmaterial/create', [TeachingMaterialController::class, 'backstageCreate'])->name('teachingmaterial.create');
         Route::get('teachingmaterial/{teachingmaterial}/edit', [TeachingMaterialController::class, 'backstageEdit'])->name('teachingmaterial.edit');
 
+        Route::post('teachingmaterial', [TeachingMaterialController::class, 'backstageStore'])->name("teachingmaterial.store");
         Route::patch('teachingmaterial/{teachingmaterial}', [TeachingMaterialController::class, 'backstageUpdate'])->name('teachingmaterial.update');
 
         Route::delete('teachingmaterial/{teachingmaterial}', [TeachingMaterialController::class, 'backstageDestroy'])->name('teachingmaterial.destroy');

@@ -11,7 +11,7 @@ class UpdateTeachingMaterialRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdateTeachingMaterialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'new_book_id' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
         ];
     }
 }

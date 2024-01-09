@@ -44,7 +44,7 @@
                                             <p class="mt-1 text-sm text-gray-300">教師上傳指定授課書籍，便於學生在課前更容易備妥上課所需書籍。
                                             </p>
                                         </div>
-                                        <a href="#" class="mt-6 flex flex-shrink-0 items-center justify-center rounded-md border border-white border-opacity-25 bg-white bg-opacity-0 px-4 py-3 text-base font-medium text-white hover:bg-opacity-10 sm:ml-8 sm:mt-0 lg:ml-0 lg:w-full">申  請</a>
+                                        <a href="{{ route('teacherauth.index') }}" class="mt-6 flex flex-shrink-0 items-center justify-center rounded-md border border-white border-opacity-25 bg-white bg-opacity-0 px-4 py-3 text-base font-medium text-white hover:bg-opacity-10 sm:ml-8 sm:mt-0 lg:ml-0 lg:w-full">申  請</a>
                                     </div>
                                 </div>
                             </div>

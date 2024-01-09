@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TeacherAuth;
 use App\Http\Requests\StoreTeacherAuthRequest;
 use App\Http\Requests\UpdateTeacherAuthRequest;
+use App\Models\TeachingMaterial;
 
 class TeacherAuthController extends Controller
 {
@@ -13,7 +14,8 @@ class TeacherAuthController extends Controller
      */
     public function index()
     {
-        //
+        $teacherauth = TeacherAuth::paginate(15);
+        return view('teacherauth.index', compact('teacherauth'));
     }
 
     /**
