@@ -64,18 +64,125 @@
 
 
 # 系統的主要功能與負責的同學
-★ 商品
-- 
+★新書 newbook [3B032104 吳凱杰 ](https://github.com/3B032104) 全部
+```php
+//新書列表
+Route::get('newbook', [NewBookController::class, 'index'])->name("newbook.index");
+//搜尋書籍
+Route::get('newbook/search', [NewBookController::class, 'search'])->name('newbook.search');
+```
+
+★新書購書單 newbookcart [3B032104 吳凱杰 ](https://github.com/3B032104) 全部
+```php
+//新書購書單列表
+Route::get('newbookcart', [NewBookCartController::class, 'index'])->name("newbookcart.index");
+//購書單類型
+Route::get('newbookcart/search', [NewBookCartController::class, 'search'])->name('newbookcart.search');
+//新增購書單表單
+Route::get('newbookcart/create', [NewBookCartController::class, 'create'])->name('newbookcart.create');
+//新增購書單
+Route::post('newbookcart', [NewBookCartController::class, 'store'])->name('newbookcart.store');
+//指定購書單頁面
+Route::get('newbookcart/{newBookCart}', [NewBookCartController::class, 'show'])->name('newbookcart.show');
+```
+
+★購書單成員 newbookcartmember [3B032104 吳凱杰 ](https://github.com/3B032104) 全部
+```php
+//加入購書單
+Route::post('newbookcartmember', [NewBookCartsMemberController::class, 'store'])->name("newbookcartmember.store");
+```
+
+★二手書 usedbook [3B032127 洪承葳](https://github.com/3B032127) 全部
+```php
+//二手書列表
+Route::get('usedbook', [UsedBookController::class, 'index'])->name('usedbook.index');
+//搜尋二手書
+Route::get('usedbook/search', [UsedBookController::class, 'search'])->name('usedbook.search');
+//指定二手書商品頁面
+Route::get('usedbook/{usedbook}', [UsedBookController::class, 'show'])->name('usedbook.show');
+```
+★二手書購書單 usedbookcart [3B032127 洪承葳](https://github.com/3B032127) 全部
+```php
+//二手書購書單
+Route::get('usedbookcart', [UsedBookCartController::class,'index'])->name('usedbookcart.index');
+//二手書家道購物車
+Route::post('usedbookcart/addCart/{usedbook}', [UsedBookCartController::class,'addCart'])->name('usedbookcart.addCart');
+//刪除書籍
+Route::delete('/usedbookcart/{usedBookCart}', [UsedBookCartController::class, 'destroy'])->name('usedbookcart.destroy');
+```
+
+★授課書籍 teachingmaterial [3B032111 鄭宇均](https://github.com/3B032114) 全部
+```php
+//指定授課書籍
+Route::get('teachingmaterial', [TeachingMaterialController::class, 'index'])->name("teachingmaterial.index");
+//搜尋授課書籍
+Route::get('teachingmaterial/search', [TeachingMaterialController::class, 'search'])->name('teachingmaterial.search');
+```
+
+★帳號資訊編輯表單 profile [3B032104 吳凱杰 ](https://github.com/3B032104) 全部
+```php
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//帳號更新：name, email, phone, address
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//刪除帳號
+Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+//銀行帳號資訊
+Route::patch('/accountinfo', [AccountInfoController::class, 'update'])->name('accountinfo.update');
+```
 
 
+★後台首頁 backstage dashboard
+```php
+Route::get('/dashboard', function (){ return view('backstage.dashboard'); })->name('dashboard');
+```
+★會員後台路由 [3B032127 洪承葳](https://github.com/3B032127) 全部
+```php
+★二手書列表usedbook
+Route::get('usedbook', [UsedBookController::class, 'backstageIndex'])->name("usedbook.index");
+//搜尋二手書
+Route::get('usedbook/search', [UsedBookController::class, 'backstageSearch'])->name('usedbook.search');
+//新增二手書表單
+Route::get('usedbook/create', [UsedBookController::class, 'backstageCreate'])->name('usedbook.create');
+//新增二手書
+Route::post('usedbook', [UsedBookController::class, 'backstageStore'])->name('usedbook.store');
+//編輯二手書表單
+Route::get('usedbook/{usedbook}/edit', [UsedBookController::class, 'backstageEdit'])->name('usedbook.edit');
+//更新書籍表單
+Route::patch('usedbook/{usedbook}', [UsedBookController::class, 'backstageUpdate'])->name('usedbook.update');
+//刪除書籍
+Route::delete('usedbook/{usedbook}', [UsedBookController::class, 'backstageDestroy'])->name('usedbook.destroy');
+```
 
+★學校後台路由
+★新書列表newbook [3B032104 吳凱杰 ](https://github.com/3B032104) 全部
+```php
+Route::get('newbook', [NewBookController::class, 'backstageIndex'])->name("newbook.index");
+//搜尋書籍
+Route::get('newbook/search', [NewBookController::class, 'backstageSearch'])->name('newbook.search');
+//新增書籍表單
+Route::get('newbook/create', [NewBookController::class, 'backstageCreate'])->name('newbook.create');
+//新增書籍
+Route::post('newbook', [NewBookController::class, 'backstageStore'])->name("newbook.store");
+//編輯書籍表單
+Route::get('newbook/{newbook}/edit', [NewBookController::class, 'backstageEdit'])->name('newbook.edit');
+//更新書籍
+Route::patch('newbook/{newbook}', [NewBookController::class, 'backstageUpdate'])->name('newbook.update');
+//刪除書籍
+Route::delete('newbook/{newbook}', [NewBookController::class, 'backstageDestroy'])->name('newbook.destroy');
+```
 
+★教師後台路由 [3B032111 鄭宇均](https://github.com/3B032114) 全部
+```php
+Route::get('teachingmaterial', [TeachingMaterialController::class, 'backstageIndex'])->name("teachingmaterial.index");
+Route::get('teachingmaterial/search', [TeachingMaterialController::class, 'backstageSearch'])->name('teachingmaterial.search');
+Route::get('teachingmaterial/create', [TeachingMaterialController::class, 'backstageCreate'])->name('teachingmaterial.create');
+Route::get('teachingmaterial/{teachingmaterial}/edit', [TeachingMaterialController::class, 'backstageEdit'])->name('teachingmaterial.edit');
 
+Route::patch('teachingmaterial/{teachingmaterial}', [TeachingMaterialController::class, 'backstageUpdate'])->name('teachingmaterial.update');
 
-
-
-
-
+Route::delete('teachingmaterial/{teachingmaterial}', [TeachingMaterialController::class, 'backstageDestroy'])->name('teachingmaterial.destroy');
+```
 
 ★ 身分驗證 [3B032104 吳凱杰](https://github.com/3B032104)
 
