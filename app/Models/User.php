@@ -67,6 +67,11 @@ class User extends Authenticatable
         return $this->hasMany(UsedBook::class);
     }
 
+    public function usedBookCart()
+    {
+        return $this->hasMany(UsedBookCart::class);
+    }
+
     public function teachingMaterial()
     {
         return $this->hasMany(TeachingMaterial::class);

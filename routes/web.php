@@ -7,6 +7,7 @@ use App\Http\Controllers\NewBookCartsMemberController;
 use App\Http\Controllers\NewBookController;
 use App\Http\Controllers\TeachingMaterialController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsedBookCartController;
 use App\Http\Controllers\UsedBookController;
 use Illuminate\Support\Facades\Route;
 
@@ -66,6 +67,15 @@ Route::get('usedbook', [UsedBookController::class, 'index'])->name('usedbook.ind
 Route::get('usedbook/search', [UsedBookController::class, 'search'])->name('usedbook.search');
 //指定二手書商品頁面
 Route::get('usedbook/{usedbook}', [UsedBookController::class, 'show'])->name('usedbook.show');
+
+/*usedbookcart*/
+//需要登入後才能進入的路由
+Route::middleware('auth')->group(function () {
+    //二手書購書單
+    Route::get('usedbookcart', [UsedBookCartController::class,'index'])->name('usedbookcart.index');
+    //二手書家道購物車
+    Route::post('usedbookcart/addCart/{usedbook}', [UsedBookCartController::class,'addCart'])->name('usedbookcart.addCart');
+});
 
 /* teachingmaterial */
 //指定授課書籍

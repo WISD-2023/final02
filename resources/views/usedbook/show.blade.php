@@ -16,7 +16,6 @@
                                         alt="Angled front view with bag zipped and handles upright."
                                         class="h-full w-full object-cover object-center sm:rounded-lg">
                                 </div>
-                                <!-- More images... -->
                             </div>
                         </div>
 
@@ -37,18 +36,19 @@
                                 </div>
                             </div>
 
-                            <form class="mt-6">
+                            <form action="{{ route('usedbookcart.addCart',$usedbook ) }}" method="POST" role="form" class="mt-6">
+                                @method('POST')
+                                @csrf
                                 <div class="mt-10 flex">
                                     @if(auth()->check() && auth()->user()->name == $usedbook->user->name)
                                         <button type="submit"
                                                 class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-gray-500 px-8 py-3 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                                                 disabled>
-                                            加入二手書購物車
+                                            加入二手書購書單
                                         </button>
                                     @else
-                                        <button type="submit"
-                                                class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">
-                                            加入二手書購物車
+                                        <button name="usedbook" type="submit" class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">
+                                            加入二手書購書單
                                         </button>
                                     @endif
                                 </div>
