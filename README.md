@@ -1,8 +1,10 @@
 # 系統畫面
 
 ## ◆訪客/會員 首頁
-- 購物網站首頁、各大功能轉跳連結、教師身分申請
-  ![訪客/會員 首頁](https://cdn.discordapp.com/attachments/1166624939646926908/1194345066542661744/image.png?ex=65b00385&is=659d8e85&hm=8cee56e918802495fd649aa9d81f59822f8cac9c6cc0014c62f1ac142ef26005&)
+- 購物網站首頁、各大功能轉跳連結、教師身分申請 | 淺色主題
+  ![訪客/會員 首頁 淺色主題](https://cdn.discordapp.com/attachments/1166624939646926908/1194345066542661744/image.png?ex=65b00385&is=659d8e85&hm=8cee56e918802495fd649aa9d81f59822f8cac9c6cc0014c62f1ac142ef26005&)
+- 購物網站首頁、各大功能轉跳連結、教師身分申請 | 淺色主題(其他頁面不逐一展示)
+- ![訪客/會員 首頁 深色主題(其他頁面不逐一展示)](https://cdn.discordapp.com/attachments/1166624939646926908/1194353673858457600/image.png?ex=65b00b89&is=659d9689&hm=714c3c5b9965fb1a10ffb26ee42041fcc34e3edff9b24335e574b9ec544985ad&)
 
 ## ◆訪客/會員 二手書列表&搜尋
 - 二手書總列表&搜尋
@@ -59,3 +61,84 @@
 ## 教師 管理後台建立授課書籍
 -  教師 管理後台建立授課書籍
    ![教師 管理後台建立授課書籍](#)
+
+
+# 系統的主要功能與負責的同學
+★ 商品
+- 
+
+
+
+
+
+
+
+
+
+
+
+★ 身分驗證 [3B032104 吳凱杰](https://github.com/3B032104)
+
+★ Model 關聯 [3B032104 吳凱杰](https://github.com/3B032104)
+
+## 初始專案與負責資料庫的同學
+- 初始專案 [3B032104 吳凱杰](https://github.com/3B032104)
+- 資料庫 [3B032104 吳凱杰](https://github.com/3B032104)
+
+## 額外使用的套件或樣板
+- [tailwindUI](https://tailwindui.com/?ref=top)
+- [tailwindcss](https://tailwindcss.com/)
+- [preline](https://preline.co/docs/index.html)
+
+## 系統測試資料
+使用 Seeder 自動產生資料
+```
+artisan db:seed
+```
+
+## 使用者測試帳號
+- 會員
+    - 帳號: `user@localhost`
+    - 密碼: `password`
+- 校方
+    - 帳號: `school@localhost`
+    - 密碼: `password`
+- 教師
+    - 帳號: `teach@localhost`
+    - 密碼: `password`
+- 平台人員
+    - 帳號: `admin@localhost`
+    - 密碼: `password`
+
+## 系統復原步驟
+1. 複製 ``git@github.com:WISD-2023/final02.git`` (或是[https://github.com/WISD-2023/final02.git](https://github.com/WISD-2023/final02.git))
+
+   打開 cmder，進入 www，輸入 `git clone git@github.com:WISD-2023/final02.git` 切換至專案所在資料夾 => `cd final02` 或是 系統環境已經安裝 composer, nodejs, npm, php 並且 sql port 為 33060
+2. cmder 輸入以下命令，復原專案
+    - `composer install`
+    - `composer run-script post-root-package-install`
+    - `composer run-script post-create-project-cmd`
+3. 修改 .env 檔案
+    - `DB_CONNECTION=mysql`
+    - `DB_HOST=127.0.0.1`
+    - `DB_PORT=33060`
+    - `DB_DATABASE=final02`
+    - `DB_USERNAME=root`
+    - `DB_PASSWORD=root`
+4. 復原DB/建立資料庫
+    - `artisan migrate`
+5. 建立模擬資料S
+    - `artisan db:seed`
+
+## 系統開發人員與工作分配S
+
+- [3B032104 吳凱杰](https://github.com/3B032104)
+  -
+  - 
+
+- [3B032111 鄭宇均](https://github.com/3B032114)
+  -
+  -
+- [3B032127 洪承葳](https://github.com/3B032127)
+  -
+  - 
