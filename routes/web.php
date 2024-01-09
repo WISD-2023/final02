@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AccountInfoController;
+use App\Http\Controllers\NewBookCartController;
+use App\Http\Controllers\NewBookCartsMemberController;
 use App\Http\Controllers\NewBookController;
 use App\Http\Controllers\TeachingMaterialController;
 use App\Http\Controllers\ProfileController;
@@ -34,6 +36,26 @@ Route::get('/', function () {
 Route::get('newbook', [NewBookController::class, 'index'])->name("newbook.index");
 //搜尋書籍
 Route::get('newbook/search', [NewBookController::class, 'search'])->name('newbook.search');
+
+/* newbookcart */
+//需要登入後才能進入的路由
+Route::middleware('auth')->group(function () {
+    //新書購書單列表
+    Route::get('newbookcart', [NewBookCartController::class, 'index'])->name("newbookcart.index");
+    //購書單類型
+    Route::get('newbookcart/search', [NewBookCartController::class, 'search'])->name('newbookcart.search');
+    //新增購書單表單
+    Route::get('newbookcart/create', [NewBookCartController::class, 'create'])->name('newbookcart.create');
+    //新增購書單
+    Route::post('newbookcart', [NewBookCartController::class, 'store'])->name('newbookcart.store');
+});
+
+/* newbookcartmember */
+//需要登入後才能進入的路由
+Route::middleware('auth')->group(function () {
+    //加入購書單
+    Route::post('newbookcartmember', [NewBookCartsMemberController::class, 'store'])->name("newbookcartmember.store");
+});
 
 /* usedbook */
 //二手書列表

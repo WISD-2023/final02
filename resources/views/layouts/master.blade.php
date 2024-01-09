@@ -16,6 +16,9 @@
 
     <!-- Page Content -->
     <main class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white">
+        <!-- Toast Component -->
+        @include('components.toasts')
+
         @yield('page-content')
     </main>
 </div>
