@@ -21,7 +21,7 @@ class NewBookCartsItemSeeder extends Seeder
             for ($i = 0; $i < 2; $i++){
                 $newBook = $newBooks->random();
                 NewBookCartsItem::create([
-                    'book_cart_id' => $newBookCart->id,
+                    'new_book_cart_id' => $newBookCart->id,
                     'new_book_id' => $newBook-> id,
                 ]);
             }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountInfoController;
 use App\Http\Controllers\NewBookCartController;
+use App\Http\Controllers\NewBookCartsItemController;
 use App\Http\Controllers\NewBookCartsMemberController;
 use App\Http\Controllers\NewBookController;
 use App\Http\Controllers\TeachingMaterialController;
@@ -47,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::get('newbookcart/create', [NewBookCartController::class, 'create'])->name('newbookcart.create');
     //新增購書單
     Route::post('newbookcart', [NewBookCartController::class, 'store'])->name('newbookcart.store');
+    //指定購書單頁面
+    Route::get('newbookcart/{newBookCart}', [NewBookCartController::class, 'show'])->name('newbookcart.show');
 });
 
 /* newbookcartmember */

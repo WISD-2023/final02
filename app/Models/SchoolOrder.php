@@ -10,7 +10,7 @@ class SchoolOrder extends Model
     use HasFactory;
 
     protected $fillable = [
-        'book_cart_id',
+        'new_book_cart_id',
         'payment',
         'handler_id',
         'status',
