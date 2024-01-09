@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('school_orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('book_cart_id');//new_books_cart
+            $table->unsignedBigInteger('new_book_cart_id');//new_books_cart
             $table->boolean('payment')->default(false);
             $table->unsignedBigInteger('handler_id')->nullable();
             $table->unsignedBigInteger('status')->default(0);

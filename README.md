@@ -1,66 +1,61 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 系統畫面
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## ◆訪客/會員 首頁
+- 購物網站首頁、各大功能轉跳連結、教師身分申請
+  ![訪客/會員 首頁](https://cdn.discordapp.com/attachments/1166624939646926908/1194345066542661744/image.png?ex=65b00385&is=659d8e85&hm=8cee56e918802495fd649aa9d81f59822f8cac9c6cc0014c62f1ac142ef26005&)
 
-## About Laravel
+## ◆訪客/會員 二手書列表&搜尋
+- 二手書總列表&搜尋
+  ![訪客/會員 二手書列表](https://cdn.discordapp.com/attachments/1166624939646926908/1194346412238971012/image.png?ex=65b004c6&is=659d8fc6&hm=16cc2d2295a9313ba3f1e456161a9e4f6405173407df002f9be463b28600c9be&)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ◆訪客/會員 二手書個別頁面
+- 二手書個別頁面
+  ![訪客/會員 二手書列表](https://cdn.discordapp.com/attachments/1166624939646926908/1194346453955518576/image.png?ex=65b004d0&is=659d8fd0&hm=0758a1896a41879e8e46bd4f7f8c5d0325bbf0712faa1ff8ab2041ae2583d0da&)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ◆訪客/會員 新書列表&搜尋
+- 新書總列表&搜尋
+  ![訪客/會員 新書列表](https://cdn.discordapp.com/attachments/1166624939646926908/1194347046635847750/image.png?ex=65b0055d&is=659d905d&hm=50261af7f9eb2c034ef34eb908d87c735535013e01b99e9d3ef69dc06389c59a&)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ◆訪客/會員 授課書籍列表&搜尋
+- 授課書籍列表&搜尋
+  ![訪客/會員 授課書籍列表列表](https://cdn.discordapp.com/attachments/1166624939646926908/1194347321647960084/image.png?ex=65b0059f&is=659d909f&hm=6f544513d90ef6a5819276f6fef7f95c3238263a3e2206744e8e11a314b6abd8&)
 
-## Learning Laravel
+## 會員 二手購書車
+-  會員 二手購書車
+   ![會員 二手購書車](#)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 會員 新書購書單列表&加入購書單&新增購書單按鈕&狀態選擇
+-  會員 新書購書單列表&加入購書單&新增購書單按鈕&狀態選擇
+  ![會員 新書購書單列表&加入購書單&新增購書單按鈕&狀態選擇](https://cdn.discordapp.com/attachments/1166624939646926908/1194348086173110363/image.png?ex=65b00655&is=659d9155&hm=600864e74e0ec6ad1a5b1df27461d7790d7a07a4136be9695a6bd2c931d44d22&)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 會員 新增購書單
+-  會員 新增購書單
+   ![會員 新增購書單](https://cdn.discordapp.com/attachments/1166624939646926908/1194348654731997265/image.png?ex=65b006dd&is=659d91dd&hm=58613846d4c8fe16d9ffc09da970fa13f52eebcd0c013477372f8ce588cedb14&)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 會員 購書單個別資訊頁面
+-  會員 購書單個別資訊頁面
+   ![會員 購書單個別資訊頁面](https://cdn.discordapp.com/attachments/1166624939646926908/1194349079044558888/image.png?ex=65b00742&is=659d9242&hm=235a866a03f21340f2d3f2cc1bf4c877a2c4f0263725ba4ec661e31d70c95a3f&)
 
-## Laravel Sponsors
+## 校方 管理後台新書列表
+-  校方 管理後台新書列表
+   ![校方 管理後台新書列表](https://cdn.discordapp.com/attachments/1166624939646926908/1194350835694579772/image.png?ex=65b008e5&is=659d93e5&hm=e39e4ce3ea21eacf7a68ccfb005901e44d0911ce044878011853835415a8959d&)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 校方 管理後台建立新書
+-  校方 管理後台建立新書
+   ![校方 管理後台建立新書](https://cdn.discordapp.com/attachments/1166624939646926908/1194350894389657731/image.png?ex=65b008f3&is=659d93f3&hm=c66407d33ff012c16e014bede90c631c7c3cbbee3b1da30e8b57419e89c684d2&)
 
-### Premium Partners
+## 會員 管理後台二手書列表
+-  會員 管理後台二手書列表
+   ![會員 管理後台二手書列表](https://cdn.discordapp.com/attachments/1166624939646926908/1194350939105153064/image.png?ex=65b008fd&is=659d93fd&hm=bfa595078e33c2621290d7ea047f236a929fc22b0e9b00253f55d2f8e89c0d1c&)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 會員 管理後台建立二手書
+-  校方 管理後台建立二手書
+   ![會員 管理後台建立二手書](https://cdn.discordapp.com/attachments/1166624939646926908/1194351012631302227/image.png?ex=65b0090f&is=659d940f&hm=30ca8080938a7f187b1d03806f4718806dded893582f1165cd2b5afc40401087&)
 
-## Contributing
+## 教師 管理後台授課書籍列表
+-  教師 管理後台授課書籍列表
+   ![教師 管理後台授課書籍列表](https://media.discordapp.net/attachments/1166624939646926908/1194351050463924355/image.png?ex=65b00918&is=659d9418&hm=fbadd4ae695a29af69a6997fc49d4b0114a08c4013c788bdd72cffd863ac5786&=&format=webp&quality=lossless&width=1387&height=670)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 教師 管理後台建立授課書籍
+-  教師 管理後台建立授課書籍
+   ![教師 管理後台建立授課書籍](#)

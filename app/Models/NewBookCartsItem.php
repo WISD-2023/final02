@@ -12,7 +12,7 @@ class NewBookCartsItem extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'book_cart_id',
+        'new_book_cart_id',
         'new_book_id',
     ];
 

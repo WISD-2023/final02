@@ -89,7 +89,7 @@
                             <div class="grid sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-2 gap-3 sm:gap-6">
                             @foreach($newBookCarts as $newBookCart)
                                 <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                   href="#">
+                                   href="{{ route('newbookcart.show', $newBookCart) }}">
                                     <div class="p-4 md:p-5">
                                         <div class="flex justify-between items-center">
                                             <div>
