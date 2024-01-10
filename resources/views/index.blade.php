@@ -14,21 +14,21 @@
                                         <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-01.jpg" alt="Brown leather key ring with brass metal loops and rivets on wood table." class="h-full w-full object-cover object-center">
                                     </div>
                                     <h3 class="mt-4 text-base font-semibold text-gray-900 dark:text-white">瀏覽二手書專區</h3>
-                                    <p class="mt-2 text-sm text-gray-500 dark:text-white">Keep your phone, keys, and wallet together, so you can lose everything at once.</p>
+                                    <p class="mt-2 text-sm text-gray-500 dark:text-white">可瀏覽正在販售的二手書籍資訊，並即時添加至購書單中。</p>
                                 </a>
                                 <a href="{{ route('newbook.index') }}" class="group block">
                                     <div aria-hidden="true" class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75">
                                         <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-02.jpg" alt="Natural leather mouse pad on white desk next to porcelain mug and keyboard." class="h-full w-full object-cover object-center">
                                     </div>
                                     <h3 class="mt-4 text-base font-semibold text-gray-900 dark:text-white">瀏覽新書購書專區</h3>
-                                    <p class="mt-2 text-sm text-gray-500 dark:text-white">The rest of the house will still be a mess, but your desk will look great.</p>
+                                    <p class="mt-2 text-sm text-gray-500 dark:text-white">可瀏覽學校販售之書籍資訊，並即時添加至購書單中。</p>
                                 </a>
                                 <a href="{{ route('teachingmaterial.index') }}" class="group block">
                                     <div aria-hidden="true" class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75">
                                         <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-03.jpg" alt="Person placing task list card into walnut card holder next to felt carrying case on leather desk pad." class="h-full w-full object-cover object-center">
                                     </div>
                                     <h3 class="mt-4 text-base font-semibold text-gray-900 dark:text-white">瀏覽上課指定授課書籍</h3>
-                                    <p class="mt-2 text-sm text-gray-500 dark:text-white">Be more productive than enterprise project managers with a single piece of paper.</p>
+                                    <p class="mt-2 text-sm text-gray-500 dark:text-white">可瀏覽學校販售之書籍資訊，並即時添加至購書單中。</p>
                                 </a>
                             </div>
                             <div class="mx-auto max-w-[85rem] px-4 py-16 sm:px-0.5 sm:py-8 lg:max-w-7xl">

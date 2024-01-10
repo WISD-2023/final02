@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
         //建立1個校方帳號 各有一帳戶
         User::factory(1)->hasAccountInfo()->create([
             'email' => 'school@localhost',
-            'permission' => 1,
+            'permission' => 2,
         ]);
 
         //建立5個教師帳號 各有一帳戶
