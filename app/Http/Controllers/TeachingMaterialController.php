@@ -92,7 +92,7 @@ class TeachingMaterialController extends Controller
     public function backstageSearch(Request $request)
     {
         $search = $request->input('search');
-        $teachingmaterials = TeachingMaterial::where('name', 'like', '%' . $search . '%')->paginate(8);
+        $teachingmaterials = TeachingMaterial::where('name', 'like', '%' . $search . '%')->paginate(10);
 
         return view('backstage.teachingmaterial.index', compact('teachingmaterials'));
     }

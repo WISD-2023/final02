@@ -16,7 +16,7 @@
                                 <div class="mt-4 sm:mt-0">
                                     <form action="{{ route('teachingmaterial.search') }}" method="GET">
                                         <div class="flex items-center">
-                                            <input type="text" name="search" id="search" placeholder="搜尋授課書籍" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
+                                            <input type="text" name="search" id="search" placeholder="搜尋課程名稱" class="border rounded-md border-gray-200 dark:bg-gray-700 dark:border-gray-400 py-1 px-2 mr-2">
                                             <button type="submit" class="bg-blue-600 text-white ark:bg-blue-800 dark:text-gray-200 px-4 py-1 rounded-md">搜尋</button>
                                         </div>
                                     </form>
