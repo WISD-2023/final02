@@ -14,6 +14,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Str;
 
 class UsedBookController extends Controller
 {
@@ -91,6 +92,19 @@ class UsedBookController extends Controller
         // 如果驗證失敗，將自動導回先前的表單
 
         // 驗證成功
+
+        // 如果有上傳圖片
+        if ($request->hasFile('book_image')) {
+            $image = $request->file('book_image');
+            $imageName = time().'.'.$request->book_image->extension();
+            // 移動圖片到目標目錄
+            $image->move(public_path('images'), $imageName);
+
+            // 將檔案名稱存入資料庫
+            $validatedData['book_image'] = $imageName;
+        }
+
+        // 資料庫儲存
         UsedBook::create($validatedData);
 
         // 資料保存後轉跳回新書總表

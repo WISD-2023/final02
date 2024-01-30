@@ -27,7 +27,7 @@ class UpdateUsedBookRequest extends FormRequest
             'pp' => 'required|string|max:255',
             'isbn' => 'required|string|digits:13',
             'book_state' => 'required|string|max:255',
-            'book_image' => 'required|string|max:255',
+            'book_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string|max:255',
             'pay_type' => 'required|integer',
             'trade_place' => 'required|integer',

@@ -86,20 +86,10 @@
                                 @enderror
                             </div>
 
-                            <!--<div class="sm:col-span-4">
-                                <label for="photo" class="block text-sm font-medium mb-2 dark:text-white">二手書圖片</label>
-                                <div class="mt-2">
-                                    <input type="file" name="photo" class="dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" accept="image/*" >
-                                </div>
-
-                                <div class="text-red-400"></div>
-
-                            </div>-->
-
                             <div class="sm:col-span-2">
-                                <label for="book_image" class="block text-sm font-medium mb-2 dark:text-white">書籍圖片</label>
+                                <label for="book_image" class="block text-sm font-medium mb-2 dark:text-white">二手書圖片</label>
                                 <div class="mt-2">
-                                    <input type="text" id="book_image" name="book_image" value="{{ old('book_image', $usedbook -> book_image) }}" class=" block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" placeholder="請輸入二手書書況">
+                                    <input type="file" name="book_image" class="dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" accept="image/*" >
                                 </div>
                                 @error('book_image')
                                 <div class="text-red-400">{{ $message }}</div>
